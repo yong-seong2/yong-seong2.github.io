@@ -74,6 +74,9 @@ Python LightGBM Optuna scikit-learn TF-IDF / TruncatedSVD IsolationForest Strati
 파일 구성
 
 ├── 최종코드파일.ipynb        # 전체 파이프라인 코드
+
 ├── 제타바이트_발표자료.pdf    # 본선 발표 자료
+
 ├── 제타바이트_submission_5.csv  # 제출 결과 샘플
+
 └── 5주차_results.pdf  # 결과 순위 파일
