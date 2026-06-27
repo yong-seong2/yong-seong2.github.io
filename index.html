@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조용성 | Data Analyst Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=DM+Mono:wght@300;400;500&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white:   #FFFFFF;
+  --bg:      #F8F8F8;
+  --bg-soft: #F2F4F8;
+  --card:    #FFFFFF;
+  --line:    #E4E8EF;
+  --line-2:  #CDD3DE;
+  --ink:     #1A1D23;
+  --ink-2:   #333D4B; 
+  --ink-3:   #5A6573; 
+  --navy:    #1A3A6B;
+  --navy-2:  #0F2548;
+  --navy-bg: #EBF0F9;
+  --teal:    #0EA5A0;
+  --teal-bg: #E6F6F5;
+  --amber:   #D97706;
+  --amber-bg:#FEF3C7;
+  --serif: 'Noto Serif KR', serif;
+  --mono:  'DM Mono', monospace;
+  --body:  'Pretendard', -apple-system, sans-serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--body);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:300;
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 64px;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1.5px solid var(--line);
+}
+.nav-mark {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .16em;
+  color: var(--navy); font-weight: 500;
+}
+.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links a {
+  font-size: 12.5px; color: var(--ink-2); text-decoration: none;
+  letter-spacing: .03em; font-weight: 500; transition: color .15s;
+}
+.nav-links a:hover { color: var(--navy); }
+
+/* ── HERO ── */
+.hero-wrap {
+  min-height: 100vh;
+  max-width: 1100px; margin: 0 auto;
+  padding: 52px 64px 0;
+  display: grid; grid-template-columns: 1fr 380px; gap: 72px;
+  align-items: center;
+}
+.h-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--navy-bg); color: var(--navy);
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; padding: 6px 14px; border-radius: 99px;
+  margin-bottom: 24px;
+  opacity:0; animation: rise .5s .1s ease forwards;
+}
+.h-kicker::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--navy); }
+
+.h-title {
+  font-family: var(--serif); font-weight: 700; line-height: 1.15;
+  font-size: clamp(42px, 5.8vw, 66px); margin-bottom: 28px; color: var(--ink);
+  opacity:0; animation: rise .5s .2s ease forwards;
+}
+.h-title .hl {
+  color: var(--navy); position: relative; display: inline-block;
+}
+.h-title .hl::after {
+  content: ''; position: absolute; left:0; right:0; bottom: 5px;
+  height: 3px; background: var(--teal); border-radius: 2px;
+}
+
+.h-lead {
+  font-size: 15.5px; color: var(--ink-2); line-height: 1.88; max-width: 480px;
+  margin-bottom: 36px;
+  opacity:0; animation: rise .5s .3s ease forwards;
+}
+
+.h-pills {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; margin-bottom: 52px;
+  opacity:0; animation: rise .5s .4s ease forwards;
+}
+.pill {
+  border: 1.5px solid var(--line-2); background: var(--white);
+  color: var(--ink-2); padding: 5px 16px; border-radius: 99px;
+  font-size: 12.5px; font-weight: 500; transition: border-color .15s, color .15s, background .15s;
+}
+.pill:hover { border-color: var(--navy); color: var(--navy); background: var(--navy-bg); }
+
+/* hero right */
+.h-right { opacity:0; animation: rise .5s .5s ease forwards; }
+
+.h-stat-row {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border: 1.5px solid var(--line);
+  border-radius: 12px 12px 0 0; overflow: hidden;
+  background: var(--white);
+}
+.h-stat {
+  padding: 20px 16px; text-align: center;
+  border-right: 1px solid var(--line);
+}
+.h-stat:last-child { border-right: none; }
+.h-stat-n {
+  font-family: var(--serif); font-size: 30px; font-weight: 700;
+  color: var(--navy); display: block; line-height: 1; margin-bottom: 5px;
+}
+.h-stat-l {
+  font-family: var(--body); font-size: 11px; color: var(--ink-3);
+  font-weight: 700; line-height: 1.4;
+}
+
+.h-info-list { border: 1.5px solid var(--line); border-top: none; border-radius: 0 0 12px 12px; overflow: hidden; }
+.h-info-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 18px; border-top: 1px solid var(--line);
+  background: var(--white); transition: background .15s;
+}
+.h-info-item:hover { background: var(--bg-soft); }
+.h-info-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dot-navy  { background: var(--navy); }
+.dot-teal  { background: var(--teal); }
+.dot-amber { background: var(--amber); }
+
+.h-info-label {
+  font-family: var(--body); font-size: 11px; color: var(--ink-3);
+  font-weight: 700; letter-spacing: .02em; white-space: nowrap; margin-bottom: 2px;
+}
+.h-info-val { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+
+/* ── SECTION WRAPPER ── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 96px 64px; }
+.sec-bg { background: var(--bg); }
+.sec-eye {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
+}
+.sec-h {
+  font-family: var(--serif); font-size: 28px; font-weight: 700;
+  margin-bottom: 44px; color: var(--ink);
+}
+
+/* ── ABOUT ── */
+.about-layout { display: grid; grid-template-columns: 290px 1fr; gap: 56px; align-items: start; }
+
+.id-card {
+  background: var(--white); border: 1.5px solid var(--line);
+  border-radius: 14px; overflow: hidden; position: sticky; top: 64px;
+  box-shadow: 0 2px 12px rgba(26,58,107,.06);
+}
+.id-top {
+  background: var(--navy); padding: 26px 24px 22px;
+}
+.id-name { font-family: var(--serif); font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.id-name-en { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,.55); letter-spacing: .12em; }
+.id-body { padding: 16px 22px; }
+.id-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 11px 0; border-bottom: 1px solid var(--bg); font-size: 13px;
+}
+.id-row:last-child { border: none; }
+.id-k { font-family: var(--body); font-size: 12px; color: var(--ink-3); font-weight: 700; }
+.id-v { font-weight: 600; font-size: 13.5px; color: var(--ink); }
+.id-v.highlight { color: var(--navy); }
+
+.about-r {}
+.about-quote {
+  font-family: var(--serif); font-size: 21px; font-weight: 400; line-height: 1.6;
+  border-left: 3px solid var(--teal); padding-left: 20px; margin-bottom: 28px; color: var(--ink);
+}
+.about-p { font-size: 14.5px; color: var(--ink-2); line-height: 1.92; margin-bottom: 32px; }
+.about-p strong { color: var(--ink); font-weight: 600; }
+
+.q-title { font-family: var(--body); font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+.q-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.q-item {
+  background: var(--navy-bg); border: 1.5px solid var(--line);
+  border-radius: 10px; padding: 15px 18px;
+  font-size: 13px; color: var(--ink); line-height: 1.55; font-weight: 500;
+  transition: border-color .15s, box-shadow .15s;
+}
+.q-item:hover { border-color: var(--navy); box-shadow: 0 2px 10px rgba(26,58,107,.08); }
+.q-item span { display: block; font-family: var(--body); font-size: 11px; color: var(--navy); font-weight: 700; margin-bottom: 5px; }
+
+/* ── SKILLS ── */
+.sk-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.sk-card {
+  background: var(--white); border: 1.5px solid var(--line);
+  border-radius: 10px; padding: 20px 22px;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+}
+.sk-card:hover { transform: translateY(-2px); border-color: var(--navy); box-shadow: 0 4px 16px rgba(26,58,107,.08); }
+.sk-h { font-family: var(--body); font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+.sk-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.sk-t { background: var(--bg-soft); color: var(--ink-2); font-size: 12px; padding: 3px 10px; border-radius: 4px; border: 1px solid var(--line); font-weight: 500; }
+
+/* ── PROJECTS ── */
+.pj {
+  background: var(--white); border: 1.5px solid var(--line);
+  border-radius: 14px; padding: 36px; margin-bottom: 18px;
+  position: relative; overflow: hidden;
+  transition: box-shadow .2s, border-color .2s, transform .2s;
+}
+.pj:hover { border-color: #9AB5DC; box-shadow: 0 6px 28px rgba(26,58,107,.09); transform: translateY(-1px); }
+.pj-accent { position: absolute; top:0; left:0; width:100%; height:3px; background: linear-gradient(90deg, var(--navy), var(--teal)); opacity:0; transition:opacity .2s; }
+.pj:hover .pj-accent { opacity:1; }
+.pj-top { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:8px; }
+.pj-title { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--ink); }
+.badge { font-family: var(--body); font-size: 11px; padding: 5px 12px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; font-weight: 600; }
+.b-navy   { background: var(--navy); color: #fff; }
+.b-teal   { background: var(--teal); color: #fff; }
+.b-amber  { background: var(--amber); color: #fff; }
+.b-navy-o { background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC; }
+.b-gray   { background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC; } 
+.pj-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-3); margin-bottom: 14px; letter-spacing: .02em; }
+.pj-desc { font-size: 14px; color: var(--ink-2); line-height: 1.82; margin-bottom: 15px; }
+.pj-list { list-style: none; margin-bottom: 16px; }
+.pj-list li { font-size: 13.5px; color: var(--ink-2); padding: 4px 0 4px 18px; position: relative; line-height: 1.72; }
+.pj-list li::before { content:'—'; position:absolute; left:0; top:5px; color:var(--teal); font-size:11px; font-weight:700; }
+.pj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.st { font-family: var(--mono); font-size: 11px; background: var(--bg-soft); color: var(--ink-2); padding: 3px 10px; border-radius: 4px; border: 1px solid var(--line); }
+.img-ph {
+  background: var(--bg); border: 1.5px dashed var(--line-2); border-radius: 8px;
+  padding: 20px; text-align: center; font-family: var(--mono); font-size: 11px;
+  color: var(--ink-3); margin: 13px 0; line-height: 1.6;
+}
+.img-ph strong { display:block; color:var(--navy); font-size:9px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:4px; }
+
+/* ── TIMELINE ── */
+.tl { position: relative; padding-left: 32px; }
+.tl::before { content:''; position:absolute; left:3px; top:10px; bottom:10px; width:1px; background:var(--line-2); }
+.tl-item { position: relative; margin-bottom: 26px; }
+.tl-dot { position:absolute; left:-32px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--navy); border:2px solid var(--white); box-shadow:0 0 0 1.5px var(--navy); }
+.tl-dot.gold { background:var(--amber); box-shadow:0 0 0 1.5px var(--amber); }
+.tl-date { font-family:var(--mono); font-size:11px; color:var(--ink-3); font-weight: 600; margin-bottom:3px; }
+.tl-name { font-size:14px; font-weight:600; color:var(--ink); margin-bottom:2px; }
+.tl-sub { font-size:13px; color:var(--ink-2); }
+
+/* ── SCHOLARSHIP ── */
+.sch-box {
+  background: var(--white); border: 1.5px solid var(--line);
+  border-radius: 12px; padding: 28px 32px; margin-bottom: 44px;
+  display: flex; align-items: center; gap: 36px;
+  box-shadow: 0 4px 20px rgba(26,58,107,.06); /* 밋밋함 제어를 위한 깊이감 확장 */
+}
+.sch-n { font-family:var(--serif); font-size:32px; font-weight:700; color:var(--navy); display:block; }
+.sch-sub { font-family:var(--body); font-size:11px; color:var(--ink-3); font-weight:600; margin-top:3px; }
+.sch-div { width:1px; height:56px; background:var(--line-2); flex-shrink:0; }
+.sch-tags { display:flex; flex-wrap:wrap; gap:8px; flex:1; }
+.sch-t { font-size:12.5px; padding:6px 14px; border-radius:6px; font-weight:600; transition: all 0.2s; }
+.sch-t.navy { background:var(--navy-bg); color:var(--navy); border:1.5px solid #9AB5DC; }
+.sch-t.navy:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* ── CREDS ── */
+.cr-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+.cr-c {
+  background:var(--white); border: 1.5px solid var(--line); border-radius:12px;
+  padding:18px 24px; display:flex; align-items:center; gap:16px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+/* 자격증 카드 마우스 오버 시 미니멀 입체 이펙트 */
+.cr-c:hover { 
+  border-color: var(--navy); 
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(26,58,107,0.08); 
+}
+/* 숫자 인덱스 영역 입체감 고도화 */
+.cr-ico { 
+  width:40px; height:30px; background: var(--navy-bg); border-radius:6px; 
+  display:flex; align-items:center; justify-content:center; 
+  font-family:var(--mono); font-size:12px; font-weight:700; color:var(--navy); flex-shrink:0; 
+  border: 1px solid #9AB5DC;
+}
+.cr-name { font-size:14.5px; font-weight:700; color:var(--ink); }
+.cr-meta { font-family:var(--body); font-size:12px; color:var(--ink-3); font-weight: 500; margin-top:3px; }
+
+/* ── AWARDS TABLE ── */
+.aw-t { width:100%; border-collapse:collapse; font-size:13.5px; }
+.aw-t th { text-align:left; font-family:var(--body); font-size:11px; font-weight: 700; color:var(--ink-3); padding:8px 16px 12px; border-bottom:1.5px solid var(--line-2); }
+.aw-t td { padding:13px 16px; color:var(--ink-2); border-bottom:1px solid var(--line); vertical-align:middle; }
+.aw-t tr:last-child td { border:none; }
+.aw-t tr:hover td { background:var(--bg); }
+.al { display:inline-block; font-family:var(--body); font-size:12px; padding:4px 12px; border-radius:5px; white-space:nowrap; font-weight:600; }
+.al-teal   { background:var(--teal-bg); color:var(--teal); border:1.5px solid #6DD4D0; }
+.al-navy   { background:var(--navy-bg); color:var(--navy); border:1.5px solid #9AB5DC; } /* NH 본선 전용 딥 배지 */
+.al-amber  { background:var(--amber-bg); color:var(--amber); border:1.5px solid #FCD34D; }
+.al-silver { background:#F1F3F5; color:#4A5160; border:1.5px solid #CDD3DE; } /* DB GAPS 상위 30% 전용 실버 배지 */
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1.5px solid var(--line); padding: 40px 64px;
+  text-align: center; font-family: var(--body); font-size: 13px;
+  color: var(--ink-3);
+  max-width: 1100px; margin: 0 auto;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes rise { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+.f { opacity:0; transform:translateY(13px); transition:opacity .48s ease, transform .48s ease; }
+.f.on { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:780px){
+  nav { padding:0 20px; }
+  .hero-wrap { grid-template-columns:1fr; padding:80px 24px 40px; }
+  .h-right { display:none; }
+  .wrap { padding:64px 24px; }
+  .about-layout { grid-template-columns:1fr; }
+  .id-card { position:static; }
+  .sk-grid { grid-template-columns:1fr 1fr; }
+  .q-grid { grid-template-columns:1fr; }
+  .cr-grid { grid-template-columns:1fr; }
+  .sch-box { flex-direction:column; gap:20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-mark">JO · YONGSEONG</span>
+  <ul class="nav-links">
+    <li><a href="#about">소개</a></li>
+    <li><a href="#skills">기술</a></li>
+    <li><a href="#projects">프로젝트</a></li>
+    <li><a href="#timeline">이력</a></li>
+    <li><a href="#credentials">자격·수상</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div style="min-height:100vh; display:flex; align-items:center;">
+<div class="hero-wrap">
+  <div>
+    <div class="h-kicker">Data Analyst · ML Engineer · Business Analytics</div>
+    <h1 class="h-title">
+      쌓다 보면<br>결국 <span class="hl">닿습니다</span>.
+    </h1>
+    <p class="h-lead">
+      데이터의 가치는 화려한 알고리즘보다 복잡한 현상을 비즈니스 논리로 정밀하게 정의할 때 드러난다고 생각합니다.
+      인문학적 시야와 공학적인 분석을 융합하여 지난 3년간 다양한 도메인의 실전 문제를 해결해 왔습니다. 이러한 문제 해결 과정에서 
+      기술에만 의존하기보다, 동료들의 서로 다른 강점을 연결하고 유연하게 조율하는 소통에 집중했습니다. 그 결과 수많은 팀원과 함께 
+      전국 규모의 성과를 이끌어낼 수 있었습니다. 현장의 공백을 메우고 실질적인 솔루션을 도출하는 데이터 분석가입니다.
+    </p>
+    <div class="h-pills">
+  <span class="pill">머신러닝</span>
+  <span class="pill">자연어처리 · NLP</span>
+  <span class="pill">LLM 엔지니어링</span>
+  <span class="pill">비즈니스 인사이트</span>
+  <span class="pill">SCM · CRM</span>
+  <span class="pill">데이터 분석</span>
+</div>
+  </div>
+
+  <div class="h-right">
+    <div class="h-stat-row">
+      <div class="h-stat">
+        <span class="h-stat-n">4.14</span>
+        <span class="h-stat-l">학점<br>/4.5</span>
+      </div>
+      <div class="h-stat">
+        <span class="h-stat-n">10+</span>
+        <span class="h-stat-l">프로젝트<br>· 대회</span>
+      </div>
+      <div class="h-stat">
+        <span class="h-stat-n">20+</span>
+        <span class="h-stat-l">협업<br>팀원 수</span>
+      </div>
+    </div>
+    <div class="h-info-list">
+      <div class="h-info-item">
+        <div class="h-info-dot dot-amber"></div>
+        <div>
+          <p class="h-info-label">융합 전공</p>
+          <p class="h-info-val">빅데이터 + 경영학</p>
+        </div>
+      </div>
+      <div class="h-info-item">
+        <div class="h-info-dot dot-teal"></div>
+        <div>
+          <p class="h-info-label">성과 증명</p>
+          <p class="h-info-val">통계·AI 공모전 다수 수상</p>
+        </div>
+      </div>
+      <div class="h-info-item">
+        <div class="h-info-dot dot-navy"></div>
+        <div>
+          <p class="h-info-label">협업 및 소통</p>
+          <p class="h-info-val">다양한 팀원과 함께한 프로젝트 리드 및 발표</p>
+        </div>
+      </div>
+      <div class="h-info-item">
+        <div class="h-info-dot dot-navy"></div>
+        <div>
+          <p class="h-info-label">직무 관심</p>
+          <p class="h-info-val">데이터 분석가 · AI 엔지니어</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="sec-bg">
+<div class="wrap">
+  <p class="sec-eye">About</p>
+  <h2 class="sec-h">소개</h2>
+  <div class="about-layout">
+
+    <div class="id-card f">
+      <div class="id-top">
+        <p class="id-name">조용성</p>
+        <p class="id-name-en">JO YONGSEONG</p>
+      </div>
+      <div class="id-body">
+        <div class="id-row"><span class="id-k">소속</span><span class="id-v">전남대학교</span></div>
+        <div class="id-row"><span class="id-k">전공</span><span class="id-v">빅데이터융합학 + 경영학 복수전공</span></div>
+        <div class="id-row"><span class="id-k">경력</span><span class="id-v">GIST(광주과학기술원) 연구 인턴</span></div>
+        <div class="id-row"><span class="id-k">학점</span><span class="id-v">4.14 / 4.5</span></div>
+        <div class="id-row"><span class="id-k">최고 학점</span><span class="id-v">4.5 (21학점) / 4.5</span></div>
+        
+        <div class="id-row" style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <span class="id-k" style="margin-top: 4px;">핵심 자격</span>
+          <span class="id-v" style="text-align: right; max-width: 75%; word-break: keep-all;">ADsP · 컴퓨터활용능력 1급<br>정보처리기사</span>
+        </div>
+        
+        <div class="id-row" style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <span class="id-k" style="margin-top: 4px;">주요 수상</span>
+          <span class="id-v" style="text-align: right; max-width: 75%; word-break: keep-all;">호남통계청 최우수상<br>SAS KOREA 전국 4위</span>
+        </div>
+        
+        <div class="id-row" style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <span class="id-k" style="margin-top: 4px;">관심 도메인</span>
+          <span class="id-v" style="text-align: right; max-width: 75%; word-break: keep-all;">금융투자 · CRM · SCM<br>머신러닝</span>
+        </div>
+        
+        <div class="id-row" style="border:none;"><span class="id-k">이메일</span><span class="id-v">snaptoover57@naver.com</span></div>
+      </div>
+    </div>
+
+    <div class="f">
+      <p class="about-quote">"숫자 뒤의 이야기를 찾고 싶었습니다."</p>
+      <p class="about-p">
+        고등학교 때 가장 좋아했던 과목은 사회였습니다. 사회현상이 어떤 구조로 작동하는지, 수치로 무엇을 설명할 수 있는지가 궁금했거든요. 그 감각이 빅데이터로 이어졌고, <strong>기술보다 문제를 먼저 보는 방식</strong>이 지금의 저를 만들었습니다.<br><br>
+        대학 입학 후 현상 뒤에 숨겨진 정량적 지표를 발굴하고자 수많은 프로젝트와 경진대회에 부딪히며 데이터 리터리시를 체득해 왔습니다. 이론과 현장의 공백을 메우기 위해 끊임없이 실험을 기록하고 모델을 고도화했던 시간들은 대외적인 성과뿐만 아니라, 함께하는 동료들의 깊은 신뢰를 얻는 밑거름이 되었습니다. 축적된 통계적 직관과 비즈니스 논리를 바탕으로, <strong>기술과 경영의 교차점</strong>에서 현장에 즉시 기여할 수 있는 실질적인 솔루션을 도출하는 분석가가 목표입니다.
+      </p>
+      <p class="q-title">관심 도메인 · 풀고 싶은 문제</p>
+      <div class="q-grid">
+        <div class="q-item"><span>금융 · 투자</span>뉴스 텍스트로 시장 신호를 포착할 수 있을까?</div>
+        <div class="q-item"><span>의사결정 · LLM</span>학술적으로 검증된 방법론으로 일상의 선택을 도울 수 있을까?</div>
+        <div class="q-item"><span>고객 관계 관리 · CRM</span>데이터로 고객의 행동 패턴을 예측하고, LTV(고객 생애 가치)를 극대화할 수 있을까?</div>
+        <div class="q-item"><span>공급망 · 운영</span>데이터로 공급망의 낭비를 얼마나 줄일 수 있을까?</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+<div class="wrap">
+  <p class="sec-eye">Skills</p>
+  <h2 class="sec-h">역량</h2>
+  
+  <p style="font-size: 14.5px; color: var(--ink-2); margin-bottom: 32px; line-height: 1.8; font-weight: 500;">
+    다양한 프로젝트에서 검증된 <strong style="color: var(--navy); font-weight: 700;">금융·CRM·SCM 도메인 지식</strong>과, 
+    20여 명의 팀원을 유연하게 조율하여 성과를 도출하고 발표를 주도해 온 <strong style="color: var(--navy); font-weight: 700;">소프트 리더십</strong>을 기반으로 
+    기술을 실질적인 비즈니스 솔루션으로 치환합니다.
+  </p>
+
+  <div class="sk-grid" style="grid-template-columns: repeat(3, 1fr); gap: 16px;">
+    
+    <div class="sk-card" style="min-height: 200px;">
+      <p class="sk-h" style="font-family: var(--body); font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 14px;">
+        01 / 언어 및 인프라 도구
+      </p>
+      <div class="sk-tags">
+        <span class="sk-t">Python</span>
+        <span class="sk-t">SQL</span>
+        <span class="sk-t">Excel</span>
+        <span class="sk-t">Git / GitHub</span>
+        <span class="sk-t">R</span>
+        <span class="sk-t">Notion</span>
+      </div>
+    </div>
+
+    <div class="sk-card" style="min-height: 200px;">
+      <p class="sk-h" style="font-family: var(--body); font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 14px;">
+        02 / 통계 가설 검정 및 분석
+      </p>
+      <div class="sk-tags">
+        <span class="sk-t">회귀분석</span>
+        <span class="sk-t">카이제곱 검정</span>
+        <span class="sk-t">다변량 분석</span>
+        <span class="sk-t">K-Means 클러스터링</span>
+        <span class="sk-t">시계열 분석</span>
+      </div>
+    </div>
+
+    <div class="sk-card" style="min-height: 200px;">
+      <p class="sk-h" style="font-family: var(--body); font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 14px;">
+        03 / 데이터 모델링 & 엔지니어링
+      </p>
+      <div class="sk-tags">
+        <span class="sk-t">LightGBM</span>
+        <span class="sk-t">EXAONE (LLM)</span>
+        <span class="sk-t">KoBERT / FinBERT</span>
+        <span class="sk-t">XGBoost / CatBoost</span>
+        <span class="sk-t">BERTopic / LDA</span>
+        <span class="sk-t">RAG 파이프라인</span>
+        <span class="sk-t">Prompt Engineering</span>
+        <span class="sk-t">Scikit-learn</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects" class="sec-bg">
+<div class="wrap">
+  <p class="sec-eye">Projects</p>
+  <h2 class="sec-h">주요 프로젝트</h2>
+
+  <!-- 1. 고객 이탈 예측 및 LTV 분석 (전국 4위 메이저 성과 - 네이비 배지) -->
+  <div class="pj f">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">고객 이탈 예측 및 LTV 분석</h3>
+      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">전국 4위 · 장려상</span>
+    </div>
+    <p class="pj-meta">2026.04 — 05 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트 (4인)</p>
+    <p class="pj-desc">10만 명 규모 고객 데이터(3개 이종 테이블)에서 이탈 확률(Churn)과 고객 생애가치(LTV)를 동시에 예측하는 2-Stage Cascading 파이프라인을 설계·구현했습니다.</p>
+    <ul class="pj-list">
+      <li><strong>도메인 기반 파생변수:</strong> 단기부채비율(STR) 직접 설계 → Feature Importance 1위, AUC +0.0013. 유전 프로그래밍 907개 수식 탐색 등 모든 자동화 기법을 앞지른 도메인 논리.</li>
+      <li><strong>체계적 실험:</strong> 30회 이상 실험 기록 · Multi-seed 검증(5-Fold × 5~10 seed)으로 모든 채택/기각을 데이터로 결정.</li>
+      <li><strong>최종:</strong> Churn AUC 0.7993 / LTV RMSE 1,347,538 · 예선 전 주차 상위권 유지 후 본선 진출</li>
+    </ul>
+    <div class="img-ph"><strong>[ 삽입 권장 ]</strong>Feature Importance 차트 · 실험별 AUC 변화 그래프 · 2-Stage 파이프라인 다이어그램</div>
+    <div class="pj-stack"><span class="st">LightGBM</span><span class="st">Optuna</span><span class="st">IsolationForest</span><span class="st">TF-IDF + SVD</span><span class="st">Multi-seed CV</span><span class="st">Python</span></div>
+  </div>
+
+  <!-- 2. 건강 MBTI (최우수상 1등 성과 - 골드 앰버 배지) -->
+  <div class="pj f">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">건강 MBTI — 국민건강영양조사 기반 유형화</h3>
+      <span class="badge" style="background: var(--amber-bg); color: var(--amber); border: 1.5px solid #FCD34D;">최우수상 (1등)</span>
+    </div>
+    <p class="pj-meta">2025 · 호남통계분석경진대회 · 팀 산만health (3인)</p>
+    <p class="pj-desc">국민건강영양조사 676개 지표를 4개 도메인으로 재구성, 클러스터링 조합으로 8가지 건강 유형 도출. 통계 분석을 일반인 서비스 프레임으로 확장.</p>
+    <ul class="pj-list">
+      <li>K-Means(k=2) × 4 도메인 → 8개 건강 유형 명명 및 맞춤형 관리 전략 제안.</li>
+      <li>카이제곱·F검정·T검정으로 연령이 핵심 설명변수임을 실증.</li>
+    </ul>
+    <div class="img-ph"><strong>[ 삽입 권장 ]</strong>8유형 분류표 · 수상 사진</div>
+    <div class="pj-stack"><span class="st">K-Means</span><span class="st">로지스틱 회귀</span><span class="st">카이제곱 검정</span><span class="st">Python / SAS</span></div>
+  </div>
+
+  <!-- 3. 수요급등 대비 안전재고량 최적화 (은상 성과 - 네이비 배지) -->
+  <div class="pj f">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">수요급등 대비 안전재고량 최적화</h3>
+      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">은상 (리더보드 1위)</span>
+    </div>
+    <p class="pj-meta">2025.08 · AI융합 산학연계 해커톤 · 팀 빅파이 (4인) · 팀 리더</p>
+    <p class="pj-desc">음료 상품 수요 예측 모델 구축 + 온도·기념일 시나리오별 안전재고 최적화. WAPE 19.66%로 리더보드 1위 달성.</p>
+    <ul class="pj-list">
+      <li><strong>이중 모델:</strong> 고판매량(CatBoost + lag/rolling) · 저판매량(SARIMAX + Fallback) — 데이터 특성 기반 전략 분리.</li>
+      <li>+5°C 시나리오 → 판매량 +20~40% · 재고 30% 상향. 기념일 재주문 패턴 → 마케팅 전략 연계.</li>
+    </ul>
+    <div class="img-ph"><strong>[ 삽입 권장 ]</strong>리더보드 캡처 · 온도 시나리오 예측 그래프</div>
+    <div class="pj-stack"><span class="st">CatBoost</span><span class="st">SARIMAX</span><span class="st">Lag Feature</span><span class="st">Rolling Mean</span><span class="st">Python</span></div>
+  </div>
+
+  <!-- 4. 해외 뉴스 빅데이터 기반 산업 동향 분석 (정규 기관 이력 - 딥 틸 배지) -->
+  <div class="pj f">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">해외 뉴스 빅데이터 기반 산업 동향 분석</h3>
+      <span class="badge" style="background: var(--teal-bg); color: var(--teal); border: 1.5px solid #6DD4D0;">GIST 연구 인턴십</span>
+    </div>
+    <p class="pj-meta">2025.12 — 2026.01 · 광주과학기술원 · 문화체육관광부 과제</p>
+    <p class="pj-desc">35개국 209만 건 해외 뉴스에서 AI·EV·바이오 산업 동향을 토픽 모델링으로 추출하고, 약지도 학습 기반 자동 산업 분류 파이프라인을 구축했습니다.</p>
+    <ul class="pj-list">
+      <li>LDA · BERTopic · Top2Vec 비교 서베이 → LDA 50토픽(47개 유효), BERTopic 1,800여 토픽 도출.</li>
+      <li>BERTopic 시드 → MLP 어휘 확장 → DFC 자동 분류. 정적 키워드 사전 한계 극복.</li>
+    </ul>
+    <div class="img-ph"><strong>[ 삽입 권장 ]</strong>LDA 워드클라우드 · BERTopic 결과 · 파이프라인 다이어그램</div>
+    <div class="pj-stack"><span class="st">LDA</span><span class="st">BERTopic</span><span class="st">KR-FinBERT</span><span class="st">약지도 학습</span><span class="st">Python</span></div>
+  </div>
+
+  <!-- 5. We-Meet 아동 AI 케어 챗봇 (기관 성과 - 딥 틸 배지 및 PM 키워드 제거) -->
+  <div class="pj f">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">We-Meet — 돌봄 사각지대 아동 AI 케어 챗봇</h3>
+      <span class="badge" style="background: var(--teal-bg); color: var(--teal); border: 1.5px solid #6DD4D0;">장려상</span>
+    </div>
+    <p class="pj-meta">2025.08.04 — 2026.01.12 · 6인 팀 · 아이디어 제안 · LLM · 파이프라인 · 발표 담당</p>
+    <p class="pj-desc">맞벌이 가구 608만 시대, 혼자 있는 아이를 위한 AI 케어 챗봇. STT → 감정인식 → LLM → TTS End-to-End 파이프라인 직접 설계.</p>
+    <ul class="pj-list">
+      <li><strong>LLM 선정·엔지니어링:</strong> 6개 모델 비교 → EXAONE(2.4B) 선정. 페르소나·위험신호 프로토콜·아동 어휘 제약 설계.</li>
+      <li><strong>기술 제약 극복:</strong> GPU 한계 → 4-bit Quantization · 음성 지연 → 문장 단위 스트리밍.</li>
+      <li><strong>요구사항 구체화:</strong> 요구사항 정의서 직접 작성으로 6인 장기 프로젝트 R&R 명확화 및 협업 흐름 주도.</li>
+    </ul>
+    <div class="img-ph"><strong>[ 삽입 권장 ]</strong>파이프라인 아키텍처 · 앱 UI 스크린샷</div>
+    <div class="pj-stack"><span class="st">EXAONE 2.4B</span><span class="st">Whisper</span><span class="st">RoBERTa</span><span class="st">Zonos TTS</span><span class="st">FastAPI</span><span class="st">4-bit Quant</span></div>
+  </div>
+
+  <!-- 6. 뉴스 감성 기반 섹터 ETF 투자 추천 (본선 진출 묶음 - 세련된 핑크 배지) -->
+  <div class="pj f">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">뉴스 감성 기반 섹터 ETF 단기 투자 추천</h3>
+      <span class="badge" style="background: #FFF0F3; color: #FF5A79; border: 1.5px solid #FFA3B1;">본선 진출</span>
+    </div>
+    <p class="pj-meta">2024 하반기 · NH 빅데이터 분석대회</p>
+    <p class="pj-desc">KoBERT 감성분석으로 섹터별 경제지표점수(빈도·감성·시간가중치 결합)를 산출하고 투자성향별 맞춤 ETF 추천 알고리즘을 설계했습니다.</p>
+    <ul class="pj-list">
+      <li>위험추구형(변동성 z값) vs. 안정추구형(Sharpe 비율) 이중 추천 알고리즘 구현.</li>
+      <li>아이디어 최초 기획 후 1년 만에 NLP 기반으로 고도화 — 지속적 축적의 결과.</li>
+    </ul>
+    <div class="pj-stack"><span class="st">KoBERT</span><span class="st">감성분석</span><span class="st">시간가중치</span><span class="st">Sharpe Ratio</span><span class="st">Python</span></div>
+  </div>
+
+</div>
+</section>
+
+<!-- ── TIMELINE ── -->
+<section id="timeline">
+<div class="wrap">
+  <p class="sec-eye">Timeline</p>
+  <h2 class="sec-h">활동 이력</h2>
+  <div class="tl">
+    <!-- 기본 이력 배경 (소프트 그레이) -->
+    <div class="tl-item f"><div class="tl-dot dot-gray"></div><p class="tl-date">2021.03</p><p class="tl-name">전남대학교 빅데이터융합학과 입학</p><p class="tl-sub">성적장학금 수혜 및 ADsP(데이터분석 준전문가) 취득</p></div>
+    <div class="tl-item f"><div class="tl-dot dot-gray"></div><p class="tl-date">2022.02 — 2023.08</p><p class="tl-name">군 복무 및 첫 공모전 도전</p><p class="tl-sub">1종 보통 운전면허 취득 · 국민체육진흥공단 공모전 참가</p></div>
+    
+    <!-- 정규 소속 및 활동 시작 (네이비) -->
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2024.03</p><p class="tl-name">2학년 1학기 복학</p><p class="tl-sub">학과 학생회 재무부 활동 착수 (1년) · SW중심대학 멘토링 참여 · 교육공공데이터분석대회 도전</p></div>
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2024.07</p><p class="tl-name">Co-Week Academy 수료 (한국연구재단)</p><p class="tl-sub">NLP·딥러닝·유전알고리즘 810분 수강 · 미래에셋 AI 대회 참여 (뉴스 감성분석 아이디어 최초 고안)</p></div>
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2024.07 — 09</p><p class="tl-name">LG Aimers 5기 수료 및 컴퓨터활용능력 1급 취득</p><p class="tl-sub">머신러닝 파이프라인(제품 이상 여부 판별) 첫 실전 경험</p></div>
+    
+    <!-- 핑크/레드 포인트로 정돈된 수상 및 성과 증명 이력 (핑크) -->
+    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2024.09.08</p><p class="tl-name">Co-Data Station 데이터 리터리시 대회 협회의장상 수상</p><p class="tl-sub">주제: 사별 위기 경보 시스템의 개선 방안 및 기대 효과 (최종 발표 담당)</p></div>
+    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2024.11.22</p><p class="tl-name">AIM Challenge 산학연계 경진대회 사업단장상 수상</p><p class="tl-sub">주제: 음성인식 무인 키오스크 개발 (최종 발표 담당)</p></div>
+    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2024.12.24</p><p class="tl-name">제5회 NH 빅데이터 분석대회 본선 진출</p><p class="tl-sub">주제: KoBERT 감성분석 기반 섹터 ETF 단기 투자 추천 알고리즘 (전국 상위 30팀 이내)</p></div>
+    
+    <!-- 정규 소속 및 장기 프로젝트 시작 (네이비) -->
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2025.01</p><p class="tl-name">전북대학교 교류 빅데이터 산학캡스톤디자인 수료 / LG Aimers 6기 참여</p><p class="tl-sub">LLM 특강 이수 및 RAG·프롬프트 엔지니어링 입문 · 난임 환자 임신 예측 개인 순위 상승</p></div>
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2025.03</p><p class="tl-name">3학년 1학기 개시 및 경영학 부전공 시작</p><p class="tl-sub">TOEIC 700점 취득 · 미래에셋희망재단 장학 수혜 (학점 4.29 우상향)</p></div>
+    
+    <!-- 일반 수상 및 성과 증명 이력 (핑크) -->
+    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2025.08.22</p><p class="tl-name">AI융합 산학연계 해커톤 은상 수상</p><p class="tl-sub">주제: 수요급등 대비 안전재고량 최적화 (동일 주제 내 리더보드 1위 달성 및 팀 리드)</p></div>
+    
+    <!-- 메이저 및 1등 수상 이력 (골드 앰버) -->
+    <div class="tl-item f"><div class="tl-dot dot-amber"></div><p class="tl-date">2025.09.22</p><p class="tl-name">2025 호남통계분석경진대회 최우수상(1등) 수상</p><p class="tl-sub">주제: 국민건강영양조사 기반 건강 MBTI 유형화 (클러스터링 및 가설 검정 통계 분석)</p></div>
+    
+    <!-- 정규 소속 및 학업 정점 (네이비) -->
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2025.09 — 2026.02</p><p class="tl-name">3학년 2학기 경영학 복수전공 확정</p><p class="tl-sub"><strong>21학점 이수 평점 4.50 (1등)</strong> · 한국사능력검정시험 1급 취득</p></div>
+    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2026.01.12</p><p class="tl-name">We-Meet 산학협력 프로젝트 수료 및 장려상 수상</p><p class="tl-sub">기간: 2025.08.04 ~ 2026.01.12 (인증서 기준) · 주제: 돌봄 사각지대 아동 AI 케어 챗봇 (LLM 파이프라인 및 발표 담당)</p></div>
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2025.12 — 2026.01</p><p class="tl-name">GIST(광주과학기술원) 문체부 과제 연구 인턴십 수행</p><p class="tl-sub">209만 건의 대규모 외신 뉴스 데이터 기반 토픽 모델링 및 약지도 학습 자동 산업 분류 연구</p></div>
+    
+    <!-- 2026년으로 연도 정정 및 계승 서사를 녹여낸 동아리 이력 (네이비) -->
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2026.04</p><p class="tl-name">데이터 분석 학술 동아리 'Terabyte' 공동 운영진 참여 및 계승</p><p class="tl-sub">동아리 자산 리브랜딩 · 대외 프로젝트 협업 기반 마련 및 세션 주도</p></div>
+    
+    <!-- 메이저 및 전국구 성과 이력 (골드 앰버) -->
+    <div class="tl-item f"><div class="tl-dot dot-amber"></div><p class="tl-date">2026.05</p><p class="tl-name">제2회 데이터분석경진대회 전국 4위 (장려상) 수상</p><p class="tl-sub">주관: 한국데이터정보과학회 × SAS KOREA · 주제: 고객 이탈 예측 및 LTV 분석 (단기부채비율 파생변수 설계)</p></div>
+    
+    <!-- 현재 진행형 이력 (네이비) -->
+    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2026.06 (현재)</p><p class="tl-name">4학년 1학기 재학 중</p><p class="tl-sub">정보처리기사 자격 취득 완료 및 빅데이터분석기사 준비 · 차기 프로젝트 기획 단계</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 타임라인 전용 도트 스타일 확장 구성 -->
+<style>
+.tl-dot.dot-amber { background: var(--amber); box-shadow: 0 0 0 1.5px var(--amber); }
+.tl-dot.dot-pink  { background: #FF5A79;     box-shadow: 0 0 0 1.5px #FF5A79; } /* 💥 딥 틸 대신 추가된 세련된 핑크레드 포인트 도트 */
+.tl-dot.dot-navy  { background: var(--navy);  box-shadow: 0 0 0 1.5px var(--navy); }
+.tl-dot.dot-gray  { background: var(--line-2); box-shadow: 0 0 0 1.5px var(--line-2); }
+</style>
+
+<!-- ── CREDENTIALS ── -->
+<section id="credentials" class="sec-bg">
+<div class="wrap">
+  <p class="sec-eye">Credentials</p>
+  <h2 class="sec-h">자격증 · 장학 · 수상</h2>
+
+  <p style="font-family:var(--body);font-size:12px;font-weight:700;color:var(--navy);margin-bottom:12px;">장학 이력</p>
+  
+  <!-- 디자인 구조를 전면 리브랜딩한 장학 이력 섹션 -->
+  <div class="sch-box f" style="background: var(--white); border: 1.5px solid var(--line); border-radius: 14px; padding: 32px; margin-bottom: 44px; display: grid; grid-template-columns: 240px 1fr; gap: 40px; box-shadow: 0 4px 18px rgba(26,58,107,0.04); position: relative; overflow: hidden;">
+    
+    <!-- 왼쪽: 누적 수혜 및 성과 강조 영역 (입체감 부여) -->
+    <div style="background: var(--bg); border-radius: 10px; padding: 24px; text-align: center; display: flex; flex-direction: column; justify-content: center; border: 1px solid var(--line);">
+      <span style="font-family: var(--body); font-size: 11px; color: #FF5A79; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">SCHOLARSHIP MILESTONE</span>
+      <span class="sch-n" style="font-family: var(--serif); font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1;">2,400만원+</span>
+      <p class="sch-sub" style="font-family: var(--body); font-size: 12px; color: var(--ink-3); font-weight: 600; margin-top: 8px;">누적 수혜 장학금</p>
+    </div>
+    
+    <!-- 오른쪽: 세련된 타임라인/리스트형 상세 내역 (자격증 박스와의 차별화) -->
+    <div style="display: flex; flex-direction: column; justify-content: center; gap: 12px;">
+      <div style="display: flex; gap: 16px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 600;">2026-1</span>
+        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">빅데이터융합학과 성적 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(평점 4.50 1등 달성)</span></p>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 600;">2024 / 25</span>
+        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">전남대학교 산학협력단 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(2회 수혜)</span></p>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 600;">2025-1/2</span>
+        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">푸른등대 삼성 생활비 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(2회 수혜)</span></p>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 700;">2024-1/2</span>
+        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">미래에셋희망재단 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(2회 수혜)</span></p>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: baseline;">
+        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 600;">2021.03</span>
+        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">대학 입학 성적 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(전액 장학 수혜)</span></p>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="font-family:var(--body);font-size:12px;font-weight:700;color:var(--navy);margin-bottom:12px;">자격증</p>
+  <div class="cr-grid f" style="margin-bottom:40px;">
+    <div class="cr-c"><div class="cr-ico">01</div><div><p class="cr-name">데이터분석 준전문가 (ADsP)</p><p class="cr-meta">2021.09 · 한국데이터산업진흥원</p></div></div>
+    <div class="cr-c"><div class="cr-ico">02</div><div><p class="cr-name">컴퓨터활용능력 1급</p><p class="cr-meta">2024.09 · 대한상공회의소</p></div></div>
+    <div class="cr-c"><div class="cr-ico">03</div><div><p class="cr-name">한국사능력검정시험 1급</p><p class="cr-meta">2025.08 · 국사편찬위원회</p></div></div>
+    <div class="cr-c"><div class="cr-ico">04</div><div><p class="cr-name">TOEIC 700점 · TOEIC Speaking IM2</p><p class="cr-meta">2025.03 / 2026.02</p></div></div>
+    <div class="cr-c"><div class="cr-ico">05</div><div><p class="cr-name">정보처리기사</p><p class="cr-meta">2026.06 · 한국산업인력공단</p></div></div>
+    <div class="cr-c"><div class="cr-ico">06</div><div><p class="cr-name">빅데이터분석기사</p><p class="cr-meta">2026.07 · 한국데이터산업진흥원</p></div></div>
+  </div>
+
+  <p style="font-family:var(--body);font-size:12px;font-weight:700;color:var(--navy);margin-bottom:12px;">수상 내역</p>
+  <div class="f">
+    <table class="aw-t">
+      <thead>
+        <tr>
+          <th style="width: 10%;">연도</th>
+          <th style="width: 45%;">대회명</th>
+          <th style="width: 20%;">결과</th>
+          <th style="width: 25%;">주관</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026</td>
+          <td style="font-weight: 600; color: var(--ink);">제2회 데이터분석경진대회</td>
+          <td><span class="al al-navy">전국 4위 · 장려상</span></td>
+          <td>한국데이터정보과학회 × SAS KOREA</td>
+        </tr>
+        <tr>
+          <td>2026</td>
+          <td style="font-weight: 600; color: var(--ink);">We-Meet 산학협력 프로젝트</td>
+          <td><span class="al al-teal">장려상</span></td>
+          <td>교육부 · 한국연구재단 · 인공지능혁신융합대학</td>
+        </tr>
+        <tr>
+          <td>2025</td>
+          <td style="font-weight: 600; color: var(--ink);">2025 호남통계분석경진대회</td>
+          <td><span class="al al-amber">최우수상 (1등)</span></td>
+          <td>호남통계청</td>
+        </tr>
+        <tr>
+          <td>2025</td>
+          <td style="font-weight: 600; color: var(--ink);">AI융합 산학연계 해커톤</td>
+          <td><span class="al al-navy">은상 (리더보드 1위)</span></td>
+          <td>인공지능혁신융합대학단</td>
+        </tr>
+        <tr>
+          <td>2024</td>
+          <td style="font-weight: 600; color: var(--ink);">제5회 NH 빅데이터 분석대회</td>
+          <td><span class="al al-pink">본선 진출</span></td>
+          <td>NH투자증권</td>
+        </tr>
+        <tr>
+          <td>2024</td>
+          <td style="font-weight: 600; color: var(--ink);">AIM Challenge 산학연계 경진대회</td>
+          <td><span class="al al-teal">사업단장상</span></td>
+          <td>인공지능혁신융합대학사업단</td>
+        </tr>
+        <tr>
+          <td>2024</td>
+          <td style="font-weight: 600; color: var(--ink);">Co-Data Station 데이터 리터리시 대회</td>
+          <td><span class="al al-teal">협회의장상</span></td>
+          <td>한국연구재단 · 인공지능혁신융합대학사업단</td>
+        </tr>
+        <tr>
+          <td>2024</td>
+          <td style="font-weight: 600; color: var(--ink);">DB GAPS 투자대회</td>
+          <td><span class="al al-pink">상위 30% · 본선</span></td>
+          <td>DB금융투자</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<!-- 상단 <style> 태그 내 기존 배지 스타일(.al-teal, .al-amber 등)을 완전히 대체할 고도화 CSS 시스템 -->
+<style>
+.al { display:inline-block; font-family:var(--body); font-size:12px; padding:5px 12px; border-radius:5px; white-space:nowrap; font-weight:600; text-align: center; }
+.al-amber  { background: var(--amber-bg); color: var(--amber); border: 1.5px solid #FCD34D; }
+.al-navy   { background: var(--navy-bg);  color: var(--navy);  border: 1.5px solid #9AB5DC; }
+.al-pink   { background: #FFF0F3;         color: #FF5A79;      border: 1.5px solid #FFA3B1; } /* 💥 요청하신 본선진출 묶음용 전용 세련된 핑크 배지 */
+.al-teal   { background: var(--teal-bg);  color: var(--teal);  border: 1.5px solid #6DD4D0; }
+</style>
+
+</div>
+</section>
+
+<footer>
+  <p>조용성 · 전남대학교 빅데이터융합학과 · 경영학 복수전공</p>
+  <p style="margin-top:8px;">snaptoover57@naver.com &nbsp;·&nbsp; GitHub: [주소]</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.f').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
