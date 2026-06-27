@@ -36,7 +36,7 @@ RFM을 절대값이 아닌 백분위(rank)로 변환해 극단값 영향 제거 
 
 
 2-Stage Cascading: Stage 1(Churn, LightGBM Binary) → Churn 예측값을 Stage 2(LTV, LightGBM Tweedie)의 피처로 활용
-단일 모델 선택 근거: LightGBM(AUC 0.8004, 15분) vs XGBoost/CatBoost/앙상블 — 성능 대비 연산 비용에서 압도적 우위, CatBoost는 seed별 변동성 (std 0.02~0.04)이 커서 제외
+단일 모델 선택 근거: LightGBM(AUC 0.8004, 15분) vs XGBoost/CatBoost/앙상블 — 성능 대비 연산 비용에서 압도적 우위, CatBoost는 seed별 변동성이 커서 제외
 검증: 5-Fold Stratified CV × Multi-seed(5~10개) 평균 → 단일 seed 과적합 방지
 
 
