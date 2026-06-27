@@ -560,14 +560,14 @@ footer {
     <div class="pj-accent"></div>
     <div class="pj-top">
       <h3 class="pj-title">고객 이탈 예측 및 LTV 분석</h3>
-      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">전국 4위 · 본선 진출 · 장려상</span>
+      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">본선 진출 · 장려상</span>
     </div>
     <p class="pj-meta">2026.04 — 05 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트 (4인) · 팀 리더 · 본선 발표</p>
-    <p class="pj-desc">10만 명 규모 고객 데이터(3개 이종 테이블)에서 이탈 확률(Churn)과 고객 생애가치(LTV)를 동시에 예측하는 2-Stage Cascading 파이프라인을 설계·구현했습니다. 팀원 2명이 첫 머신러닝 대회였던 만큼, 대회 초반에는 분석 흐름과 코드 작성 방식을 함께 맞춰가는 데도 시간을 들였습니다.</p>
+    <p class="pj-desc">10만 명 규모 고객 데이터(3개 이종 테이블)에서 이탈 확률(Churn)과 고객 생애가치(LTV)를 동시에 예측하는 2-Stage Cascading 파이프라인을 설계·구현했습니다. 팀장으로서 분석 방향을 잡고 본선 발표까지 맡았는데, 팀원 2명이 첫 머신러닝 대회였던 만큼 대회 초반에는 분석 흐름과 코드 작성 방식을 함께 맞춰가는 데도 시간을 들였습니다.</p>
     <ul class="pj-list">
       <li><strong>도메인 기반 파생변수:</strong> 단기부채비율(STR) 직접 설계 → Feature Importance 1위, AUC +0.0013. 유전 프로그래밍 907개 수식 탐색 등 모든 자동화 기법을 앞지른 도메인 논리.</li>
       <li><strong>체계적 실험:</strong> 30회 이상 실험 기록 · Multi-seed 검증(5-Fold × 5~10 seed)으로 모든 채택/기각을 데이터로 결정. 제출 횟수가 제한된 대회 특성상, 멀티시드 검증으로 안정성을 먼저 확보하는 방향으로 팀 전략을 잡았습니다.</li>
-      <li><strong>역할 분담:</strong> 파이프라인 설계·STR 변수·모델 선택·검증 체계는 직접 구현했고, churn_resistance_score(RFM Rank 변수)는 팀원이 기여해 표준편차를 20% 줄였습니다.</li>
+      <li><strong>역할 분담:</strong> 팀장으로서 파이프라인 설계·STR 변수·모델 선택·검증 체계를 직접 구현하고 본선 발표를 진행했으며, churn_resistance_score(RFM Rank 변수)는 팀원이 기여해 표준편차를 20% 줄였습니다.</li>
       <li><strong>최종:</strong> Churn AUC 0.7993 / LTV RMSE 1,347,538 · 예선 전 주차 상위권 유지(2→3→5→4위) 후 본선 진출</li>
     </ul>
     <div class="pj-stack"><span class="st">LightGBM</span><span class="st">Optuna</span><span class="st">IsolationForest</span><span class="st">TF-IDF + SVD</span><span class="st">Multi-seed CV</span><span class="st">Python</span></div>
@@ -577,20 +577,24 @@ footer {
   </div>
 
   <!-- 2. 건강 MBTI (최우수상 1등 성과 - 골드 앰버 배지) -->
-  <div class="pj f">
+  <div class="pj f has-link" onclick="openProjectModal('health-mbti')">
     <div class="pj-accent"></div>
     <div class="pj-top">
       <h3 class="pj-title">건강 MBTI — 국민건강영양조사 기반 유형화</h3>
       <span class="badge" style="background: var(--amber-bg); color: var(--amber); border: 1.5px solid #FCD34D;">최우수상 (1등)</span>
     </div>
-    <p class="pj-meta">2025 · 호남통계분석경진대회 · 팀 산만health (3인)</p>
-    <p class="pj-desc">국민건강영양조사 676개 지표를 4개 도메인으로 재구성, 클러스터링 조합으로 8가지 건강 유형 도출. 통계 분석을 일반인 서비스 프레임으로 확장.</p>
+    <p class="pj-meta">2025 · 호남통계분석경진대회 · 팀 산만health (3인) · 팀 리더 · 기획·활용방안 담당</p>
+    <p class="pj-desc">국민건강영양조사 676개 지표를 정신건강·신체건강·건강행동·경제환경 4개 도메인으로 재구성하고, 도메인별 클러스터링 조합으로 8가지 건강 유형(건강 MBTI)을 도출했습니다. 팀장으로서 "어떤 분석이 필요한지"와 "이 결과를 어떻게 활용할 수 있는지"를 기획하는 역할을 맡아, 통계 분석이 실제 서비스로 이어지는 구조를 설계했습니다.</p>
     <ul class="pj-list">
-      <li>K-Means(k=2) × 4 도메인 → 8개 건강 유형 명명 및 맞춤형 관리 전략 제안.</li>
-      <li>카이제곱·F검정·T검정으로 연령이 핵심 설명변수임을 실증.</li>
+      <li><strong>기획·PM 역할:</strong> 4개 도메인 구조 설계, 변수 선정 기준 수립, 유형별 명명과 맞춤 관리 전략까지 — 분석 결과를 일반인이 이해할 수 있는 서비스 프레임으로 전환.</li>
+      <li><strong>분석 방법:</strong> 도메인별 K-Means(k=2) 군집화 → 8개 유형 조합. 카이제곱·F검정·T검정·로지스틱 회귀로 연령·소득·결혼상태가 유형 분포에 미치는 영향을 검증.</li>
+      <li><strong>핵심 발견:</strong> 정신건강 취약 유형이 전체의 절반 이상을 차지했고, 미혼자는 한 유형(정신실천형)에 40% 집중되는 등 인구통계학적 특성에 따라 건강 유형이 뚜렷하게 갈렸습니다.</li>
+      <li><strong>활용방안:</strong> 유형별 캐릭터 콘텐츠, 지역 연계 건강 프로그램, 청소년 교육 자료 등 실제 활용 시나리오까지 보고서에 포함.</li>
     </ul>
-    <div class="img-ph"><strong>[ 삽입 권장 ]</strong>8유형 분류표 · 수상 사진</div>
     <div class="pj-stack"><span class="st">K-Means</span><span class="st">로지스틱 회귀</span><span class="st">카이제곱 검정</span><span class="st">Python / SAS</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('health-mbti')">자세히 보기 (유형 분류·시각화) →</button>
+    </div>
   </div>
 
   <!-- 3. 수요급등 대비 안전재고량 최적화 (은상 성과 - 네이비 배지) -->
@@ -895,7 +899,7 @@ footer {
     <button class="modal-close" onclick="closeProjectModal('sas-korea')">✕</button>
     <p class="modal-eyebrow">PROJECT DETAIL</p>
     <h2 class="modal-title">고객 이탈 예측 및 LTV 분석</h2>
-    <p class="modal-meta">제2회 데이터분석경진대회 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트(4인) · 팀 리더·본선 발표 · 2026.04-05</p>
+    <p class="modal-meta">제2회 데이터분석경진대회 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트(4인) · 팀 리더·본선 발표 · 2026.04—05</p>
 
     <div class="modal-grid2">
       <div class="modal-card"><div class="modal-card-h">Churn AUC</div><div class="modal-card-v">0.7993</div></div>
@@ -982,11 +986,11 @@ agg[<span class="cs">'churn_resistance_score'</span>] = (f_rank + m_rank + (<spa
       <div class="modal-sec-h">실험 기록 (30회 이상 중 핵심 10건)</div>
       <table class="exp-table">
         <tr><th>시도</th><th>결과</th><th>채택</th></tr>
-        <tr class="ok"><td>단기부채비율(STR) 파생변수</td><td>AUC +0.0013</td><td> 5-seed 전승</td></tr>
-        <tr class="ok"><td>Optuna 하이퍼파라미터 튜닝</td><td>AUC +0.0008</td><td> 5-seed 4승 1패</td></tr>
-        <tr class="ok"><td>LightGBM 단독 (CatBoost/XGB 제외)</td><td>AUC +0.0009</td><td> std 대폭 감소</td></tr>
-        <tr class="ok"><td>전처리·모델 파라미터 동시 튜닝</td><td>AUC +0.0025</td><td> 10-seed 검증</td></tr>
-        <tr class="ok"><td>RFM Rank 통합 (팀원 기여)</td><td>std 20%↓</td><td> 최악 seed 개선</td></tr>
+        <tr class="ok"><td>단기부채비율(STR) 파생변수</td><td>AUC +0.0013</td><td>✅ 5-seed 전승</td></tr>
+        <tr class="ok"><td>Optuna 하이퍼파라미터 튜닝</td><td>AUC +0.0008</td><td>✅ 5-seed 4승 1패</td></tr>
+        <tr class="ok"><td>LightGBM 단독 (CatBoost/XGB 제외)</td><td>AUC +0.0009</td><td>✅ std 대폭 감소</td></tr>
+        <tr class="ok"><td>전처리·모델 파라미터 동시 튜닝</td><td>AUC +0.0025</td><td>✅ 10-seed 검증</td></tr>
+        <tr class="ok"><td>RFM Rank 통합 (팀원 기여)</td><td>std 20%↓</td><td>✅ 최악 seed 개선</td></tr>
         <tr class="no"><td>Finance 교차 피처 17개</td><td>AUC 변화 없음</td><td>✗ 5-seed 전패</td></tr>
         <tr class="no"><td>유전 프로그래밍 수식 탐색 (907개)</td><td>3-fold↑ 5-fold↓</td><td>✗ fold 수 과적합</td></tr>
         <tr class="no"><td>GA 피처 선택 (43→29개)</td><td>local 유지, LB 하락</td><td>✗ LB 과적합 확인</td></tr>
@@ -1006,6 +1010,126 @@ agg[<span class="cs">'churn_resistance_score'</span>] = (f_rank + m_rank + (<spa
     <div class="pj-links" style="margin-top:28px;">
       <a href="https://github.com/yong-seong2/yong-seong2.github.io/tree/main/projects/sas-korea-churn-ltv" class="pj-link-btn primary" target="_blank">GitHub에서 전체 코드 보기 →</a>
       <a href="https://github.com/yong-seong2/yong-seong2.github.io/blob/main/projects/sas-korea-churn-ltv/%EC%A0%9C%ED%83%80%EB%B0%94%EC%9D%B4%ED%8A%B8%20%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf" class="pj-link-btn" target="_blank">발표 자료 (PDF)</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-health-mbti" onclick="if(event.target===this) closeProjectModal('health-mbti')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProjectModal('health-mbti')">✕</button>
+    <p class="modal-eyebrow">PROJECT DETAIL</p>
+    <h2 class="modal-title">건강 MBTI — 국민건강영양조사 기반 유형화</h2>
+    <p class="modal-meta">2025 호남통계분석경진대회 · 팀 산만health(3인) · 팀 리더·기획 및 활용방안 담당 · 2025.07</p>
+
+    <div class="modal-grid2">
+      <div class="modal-card"><div class="modal-card-h">분석 지표</div><div class="modal-card-v">676개 → 4개 도메인</div></div>
+      <div class="modal-card"><div class="modal-card-h">건강 유형</div><div class="modal-card-v">8가지 (RHA~VCI)</div></div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">분석 구조 — 4개 도메인 × K-Means</div>
+      <p style="font-size:13px; color:var(--ink-2); line-height:1.7;">
+        676개 지표를 <strong>정신건강·신체건강·건강행동·경제환경</strong> 4개 도메인으로 재구성하고, 정신·신체·행동 3개 도메인에 각각 K-Means(k=2)를 적용해 2×2×2=8가지 조합으로 건강 유형을 정의했습니다. 경제환경 변수(나이·소득·결혼상태)는 유형 분포 차이를 검증하는 회귀분석에 사용했습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">건강 유형별 분포 (8유형)</div>
+      <svg viewBox="0 0 700 260" style="width:100%; height:auto; font-family: var(--body);">
+        <g font-size="11" fill="var(--ink-2)">
+          <text x="0" y="14">정신실천형 (VHA)</text>
+          <rect x="180" y="4" width="410" height="14" fill="#F2A6C8" rx="3"/>
+          <text x="595" y="14" fill="var(--ink)" font-weight="700">1,004</text>
+
+          <text x="0" y="38">주의필요형 (VHI)</text>
+          <rect x="180" y="28" width="313" height="14" fill="#A8D08D" rx="3"/>
+          <text x="498" y="38" fill="var(--ink)">767</text>
+
+          <text x="0" y="62">이상건강형 (RHA)</text>
+          <rect x="180" y="52" width="208" height="14" fill="var(--amber)" rx="3"/>
+          <text x="393" y="62" fill="var(--ink)">508</text>
+
+          <text x="0" y="86">건강방심형 (RHI)</text>
+          <rect x="180" y="76" width="199" height="14" fill="var(--navy)" rx="3"/>
+          <text x="384" y="86" fill="var(--ink)">487</text>
+
+          <text x="0" y="110">심리우세형 (RCI)</text>
+          <rect x="180" y="100" width="152" height="14" fill="#E8847C" rx="3"/>
+          <text x="337" y="110" fill="var(--ink)">371</text>
+
+          <text x="0" y="134">행동보상형 (VCA)</text>
+          <rect x="180" y="124" width="150" height="14" fill="#B8A8D8" rx="3"/>
+          <text x="335" y="134" fill="var(--ink)">367</text>
+
+          <text x="0" y="158">통합취약형 (VCI)</text>
+          <rect x="180" y="148" width="137" height="14" fill="#F0E68C" rx="3"/>
+          <text x="322" y="158" fill="var(--ink)">336</text>
+
+          <text x="0" y="182">균형관리형 (RCA)</text>
+          <rect x="180" y="172" width="124" height="14" fill="var(--teal)" rx="3"/>
+          <text x="309" y="182" fill="var(--ink)">304</text>
+        </g>
+      </svg>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:6px;">정신적으로 취약한 유형(VHA·VHI·VCA·VCI)이 전체의 절반 이상을 차지해, 정신건강 관리 개입의 필요성이 두드러졌습니다.</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">결혼 상태별 건강 유형 분포</div>
+      <div class="modal-grid2">
+        <div>
+          <svg viewBox="0 0 220 220" style="width:100%; height:auto;">
+            <circle cx="110" cy="110" r="90" fill="none" stroke="var(--line)" stroke-width="1"/>
+            <path d="M110,110 L110,20 A90,90 0 0,1 188,67 Z" fill="#F2A6C8"/>
+            <path d="M110,110 L188,67 A90,90 0 0,1 176,165 Z" fill="var(--amber)"/>
+            <path d="M110,110 L176,165 A90,90 0 0,1 110,200 Z" fill="var(--navy)"/>
+            <path d="M110,110 L110,200 A90,90 0 0,1 32,158 Z" fill="#A8D08D"/>
+            <path d="M110,110 L32,158 A90,90 0 0,1 110,20 Z" fill="var(--bg-soft)"/>
+          </svg>
+          <p style="font-size:11.5px; text-align:center; color:var(--ink-2); font-weight:600;">기혼 — 유형 비교적 균형 분포</p>
+        </div>
+        <div>
+          <svg viewBox="0 0 220 220" style="width:100%; height:auto;">
+            <circle cx="110" cy="110" r="90" fill="none" stroke="var(--line)" stroke-width="1"/>
+            <path d="M110,110 L110,20 A90,90 0 1,1 35,160 Z" fill="#F2A6C8"/>
+            <path d="M110,110 L35,160 A90,90 0 0,1 80,193 Z" fill="var(--navy)"/>
+            <path d="M110,110 L80,193 A90,90 0 0,1 130,199 Z" fill="#A8D08D"/>
+            <path d="M110,110 L130,199 A90,90 0 0,1 110,20 Z" fill="var(--bg-soft)"/>
+          </svg>
+          <p style="font-size:11.5px; text-align:center; color:var(--ink-2); font-weight:600;">미혼 — 정신실천형(VHA) 40% 집중</p>
+        </div>
+      </div>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:10px;">기혼자는 다양한 유형이 균형 있게 분포했지만, 미혼자는 정신실천형(VHA) 한 유형에 40.0%가 집중되는 뚜렷한 차이를 보였습니다.</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">기획자로서의 역할</div>
+      <p style="font-size:13.5px; color:var(--ink-2); line-height:1.8;">
+        팀 내에서 분석 자체보다는 <strong>"무엇을 분석해야 하는지"와 "그 결과를 어떻게 쓸 것인지"</strong>를 설계하는 역할을 맡았습니다. 676개의 흩어진 지표를 4개 도메인으로 묶는 구조, MBTI 형식으로 결과를 명명하는 방식, 그리고 캐릭터 콘텐츠·지역 연계 프로그램·청소년 교육자료 등 실제 활용 시나리오까지 — 통계 분석이 보고서 안에서 끝나지 않고 실제 서비스로 이어지도록 기획했습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">핵심 발견</div>
+      <table class="exp-table">
+        <tr><th>분석</th><th>발견</th></tr>
+        <tr class="ok"><td>유형 분포</td><td>정신 취약 유형이 전체의 50% 이상 차지</td></tr>
+        <tr class="ok"><td>성별 비교</td><td>여성은 정신취약형(V)이, 남성은 정신안정형(R)이 더 높은 비율</td></tr>
+        <tr class="ok"><td>연령대 비교</td><td>40대 이후 신체건강 주의군이 급증, 60대부터 우수군 역전</td></tr>
+        <tr class="ok"><td>결혼상태 비교</td><td>미혼자는 정신실천형(VHA)에 40% 집중, 기혼자는 균형 분포</td></tr>
+        <tr class="ok"><td>소득분위 비교</td><td>소득이 높을수록 정신실천형(VHA) 비율 13%→34%로 증가</td></tr>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">교훈</div>
+      <p class="modal-quote">
+        같은 정신·신체 조건이라도 행동 실천 수준에 따라 유형이 갈렸습니다. 통계적으로 유의한 결과를 도출하는 것과, 그 결과를 사람들이 받아들이고 행동을 바꿀 수 있는 형태로 설계하는 것은 다른 작업이라는 걸 이 프로젝트를 기획하면서 가장 크게 배웠습니다.
+      </p>
+    </div>
+
+    <div class="pj-links" style="margin-top:28px;">
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/tree/main/projects/health-mbti-clustering" class="pj-link-btn primary" target="_blank">GitHub 레포 보기 →</a>
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/blob/main/projects/health-mbti-clustering/%ED%86%B5%EA%B3%84%EB%B6%84%EC%84%9D%20%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C%201%EC%B0%A8%20%EB%B6%84%EC%84%9D%EB%B3%B4%EA%B3%A0%EC%84%9C(%EC%82%B0%EB%A7%8Chealth).pdf" class="pj-link-btn" target="_blank">분석 보고서 (PDF)</a>
     </div>
   </div>
 </div>
