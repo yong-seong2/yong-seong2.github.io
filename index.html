@@ -221,9 +221,18 @@ nav {
   position: relative; overflow: hidden;
   transition: box-shadow .2s, border-color .2s, transform .2s;
 }
-.pj:hover { border-color: #9AB5DC; box-shadow: 0 6px 28px rgba(26,58,107,.09); transform: translateY(-1px); }
+.pj.has-link:hover { border-color: #9AB5DC; box-shadow: 0 6px 28px rgba(26,58,107,.09); transform: translateY(-1px); cursor: pointer; }
 .pj-accent { position: absolute; top:0; left:0; width:100%; height:3px; background: linear-gradient(90deg, var(--navy), var(--teal)); opacity:0; transition:opacity .2s; }
-.pj:hover .pj-accent { opacity:1; }
+.pj.has-link:hover .pj-accent { opacity:1; }
+.pj-links { display:flex; gap:8px; margin-top:14px; }
+.pj-link-btn {
+  display:inline-flex; align-items:center; gap:6px; font-family: var(--body); font-size: 12px; font-weight: 600;
+  padding: 7px 14px; border-radius: 7px; text-decoration:none; border: 1.5px solid var(--line-2);
+  color: var(--ink); background: var(--white); transition: all .15s; cursor: pointer; font: inherit;
+}
+.pj-link-btn:hover { border-color: var(--navy); color: var(--navy); background: var(--navy-bg); }
+.pj-link-btn.primary { background: var(--navy); color:#fff; border-color: var(--navy); }
+.pj-link-btn.primary:hover { background: var(--navy-2); }
 .pj-top { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; margin-bottom:8px; }
 .pj-title { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--ink); }
 .badge { font-family: var(--body); font-size: 11px; padding: 5px 12px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; font-weight: 600; }
@@ -547,21 +556,24 @@ footer {
   <h2 class="sec-h">주요 프로젝트</h2>
 
   <!-- 1. 고객 이탈 예측 및 LTV 분석 (전국 4위 메이저 성과 - 네이비 배지) -->
-  <div class="pj f">
+  <div class="pj f has-link" onclick="openProjectModal('sas-korea')">
     <div class="pj-accent"></div>
     <div class="pj-top">
       <h3 class="pj-title">고객 이탈 예측 및 LTV 분석</h3>
-      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">전국 4위 · 장려상</span>
+      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">전국 4위 · 본선 진출 · 장려상</span>
     </div>
-    <p class="pj-meta">2026.04 — 05 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트 (4인)</p>
-    <p class="pj-desc">10만 명 규모 고객 데이터(3개 이종 테이블)에서 이탈 확률(Churn)과 고객 생애가치(LTV)를 동시에 예측하는 2-Stage Cascading 파이프라인을 설계·구현했습니다.</p>
+    <p class="pj-meta">2026.04 — 05 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트 (4인) · 팀 리더 · 본선 발표</p>
+    <p class="pj-desc">10만 명 규모 고객 데이터(3개 이종 테이블)에서 이탈 확률(Churn)과 고객 생애가치(LTV)를 동시에 예측하는 2-Stage Cascading 파이프라인을 설계·구현했습니다. 팀원 2명이 첫 머신러닝 대회였던 만큼, 대회 초반에는 분석 흐름과 코드 작성 방식을 함께 맞춰가는 데도 시간을 들였습니다.</p>
     <ul class="pj-list">
       <li><strong>도메인 기반 파생변수:</strong> 단기부채비율(STR) 직접 설계 → Feature Importance 1위, AUC +0.0013. 유전 프로그래밍 907개 수식 탐색 등 모든 자동화 기법을 앞지른 도메인 논리.</li>
-      <li><strong>체계적 실험:</strong> 30회 이상 실험 기록 · Multi-seed 검증(5-Fold × 5~10 seed)으로 모든 채택/기각을 데이터로 결정.</li>
-      <li><strong>최종:</strong> Churn AUC 0.7993 / LTV RMSE 1,347,538 · 예선 전 주차 상위권 유지 후 본선 진출</li>
+      <li><strong>체계적 실험:</strong> 30회 이상 실험 기록 · Multi-seed 검증(5-Fold × 5~10 seed)으로 모든 채택/기각을 데이터로 결정. 제출 횟수가 제한된 대회 특성상, 멀티시드 검증으로 안정성을 먼저 확보하는 방향으로 팀 전략을 잡았습니다.</li>
+      <li><strong>역할 분담:</strong> 파이프라인 설계·STR 변수·모델 선택·검증 체계는 직접 구현했고, churn_resistance_score(RFM Rank 변수)는 팀원이 기여해 표준편차를 20% 줄였습니다.</li>
+      <li><strong>최종:</strong> Churn AUC 0.7993 / LTV RMSE 1,347,538 · 예선 전 주차 상위권 유지(2→3→5→4위) 후 본선 진출</li>
     </ul>
-    <div class="img-ph"><strong>[ 삽입 권장 ]</strong>Feature Importance 차트 · 실험별 AUC 변화 그래프 · 2-Stage 파이프라인 다이어그램</div>
     <div class="pj-stack"><span class="st">LightGBM</span><span class="st">Optuna</span><span class="st">IsolationForest</span><span class="st">TF-IDF + SVD</span><span class="st">Multi-seed CV</span><span class="st">Python</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('sas-korea')">자세히 보기 (차트·실험기록·코드) →</button>
+    </div>
   </div>
 
   <!-- 2. 건강 MBTI (최우수상 1등 성과 - 골드 앰버 배지) -->
@@ -832,7 +844,171 @@ footer {
 .al-navy   { background: var(--navy-bg);  color: var(--navy);  border: 1.5px solid #9AB5DC; }
 .al-pink   { background: #FFF0F3;         color: #FF5A79;      border: 1.5px solid #FFA3B1; } /* 💥 요청하신 본선진출 묶음용 전용 세련된 핑크 배지 */
 .al-teal   { background: var(--teal-bg);  color: var(--teal);  border: 1.5px solid #6DD4D0; }
+
+/* ── PROJECT MODAL ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(15,20,30,.55);
+  z-index: 1000; padding: 40px 20px; overflow-y: auto;
+}
+.modal-overlay.open { display: block; }
+.modal-box {
+  background: var(--white); max-width: 880px; margin: 0 auto; border-radius: 16px;
+  padding: 40px 44px 48px; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,.25);
+}
+.modal-close {
+  position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; border-radius: 50%;
+  border: 1.5px solid var(--line-2); background: var(--white); font-size: 18px; color: var(--ink-2);
+  cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s;
+}
+.modal-close:hover { background: var(--bg-soft); color: var(--ink); }
+.modal-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.modal-title { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.modal-meta { font-size: 13px; color: var(--ink-2); margin-bottom: 24px; }
+.modal-section { margin-top: 32px; }
+.modal-sec-h { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 14px; padding-left: 12px; border-left: 3px solid var(--teal); }
+.modal-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.modal-card { background: var(--bg-soft); border-radius: 10px; padding: 16px 18px; }
+.modal-card-h { font-size: 12px; font-weight: 700; color: var(--ink-2); margin-bottom: 4px; }
+.modal-card-v { font-size: 20px; font-weight: 700; color: var(--navy); }
+.exp-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.exp-table th { text-align: left; padding: 7px 10px; background: var(--bg-soft); color: var(--ink-2); font-weight: 700; font-size: 11px; }
+.exp-table td { padding: 7px 10px; border-bottom: 1px solid var(--line); color: var(--ink); }
+.exp-table tr.ok td:first-child { border-left: 3px solid var(--teal); }
+.exp-table tr.no td:first-child { border-left: 3px solid var(--line-2); color: var(--ink-3); }
+.exp-table tr.no td { color: var(--ink-3); }
+.code-block {
+  background: #1a1d23; color: #e8eaed; font-family: var(--mono); font-size: 11.5px; line-height: 1.7;
+  padding: 18px 20px; border-radius: 10px; overflow-x: auto; white-space: pre;
+}
+.code-block .cm { color: #8b95a8; }
+.code-block .kw { color: #7dd3fc; }
+.code-block .cs { color: #86efac; }
+.modal-quote { font-size: 13.5px; color: var(--ink-2); line-height: 1.7; background: var(--navy-bg); border-radius: 10px; padding: 16px 18px; margin-top: 8px; }
+@media (max-width: 700px) {
+  .modal-box { padding: 28px 20px 36px; }
+  .modal-grid2 { grid-template-columns: 1fr; }
+}
 </style>
+
+<div class="modal-overlay" id="modal-sas-korea" onclick="if(event.target===this) closeProjectModal('sas-korea')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProjectModal('sas-korea')">✕</button>
+    <p class="modal-eyebrow">PROJECT DETAIL</p>
+    <h2 class="modal-title">고객 이탈 예측 및 LTV 분석</h2>
+    <p class="modal-meta">제2회 데이터분석경진대회 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트(4인) · 팀 리더·본선 발표 · 2026.04-05</p>
+
+    <div class="modal-grid2">
+      <div class="modal-card"><div class="modal-card-h">Churn AUC</div><div class="modal-card-v">0.7993</div></div>
+      <div class="modal-card"><div class="modal-card-h">LTV RMSE</div><div class="modal-card-v">1,347,538</div></div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">Feature Importance Top 10</div>
+      <svg viewBox="0 0 700 260" style="width:100%; height:auto; font-family: var(--body);">
+        <!-- bars -->
+        <g font-size="11" fill="var(--ink-2)">
+          <text x="0" y="14">단기부채비율 (STR)</text>
+          <rect x="160" y="4" width="430" height="14" fill="var(--teal)" rx="3"/>
+          <text x="600" y="14" fill="var(--ink)" font-weight="700">177</text>
+
+          <text x="0" y="38">신용점수</text>
+          <rect x="160" y="28" width="248" height="14" fill="var(--navy)" rx="3"/>
+          <text x="418" y="38" fill="var(--ink)">102</text>
+
+          <text x="0" y="62">자산추세점수</text>
+          <rect x="160" y="52" width="163" height="14" fill="var(--navy)" rx="3"/>
+          <text x="333" y="62" fill="var(--ink)">68</text>
+
+          <text x="0" y="86">svd_0</text>
+          <rect x="160" y="76" width="62" height="14" fill="var(--navy)" rx="3"/>
+          <text x="232" y="86" fill="var(--ink)">26</text>
+
+          <text x="0" y="110">svd_2</text>
+          <rect x="160" y="100" width="52" height="14" fill="var(--navy)" rx="3"/>
+          <text x="222" y="110" fill="var(--ink)">22</text>
+
+          <text x="0" y="134">purchase_cycle_days</text>
+          <rect x="160" y="124" width="42" height="14" fill="var(--navy)" rx="3"/>
+          <text x="212" y="134" fill="var(--ink)">18</text>
+
+          <text x="0" y="158">long_term_loyalty_ratio</text>
+          <rect x="160" y="148" width="33" height="14" fill="var(--navy)" rx="3"/>
+          <text x="203" y="158" fill="var(--ink)">14</text>
+
+          <text x="0" y="182">이상치점수</text>
+          <rect x="160" y="172" width="29" height="14" fill="var(--navy)" rx="3"/>
+          <text x="199" y="182" fill="var(--ink)">12</text>
+
+          <text x="0" y="206">예적금잔액</text>
+          <rect x="160" y="196" width="27" height="14" fill="var(--navy)" rx="3"/>
+          <text x="197" y="206" fill="var(--ink)">11</text>
+
+          <text x="0" y="230">총대출잔액</text>
+          <rect x="160" y="220" width="24" height="14" fill="var(--navy)" rx="3"/>
+          <text x="194" y="230" fill="var(--ink)">10</text>
+        </g>
+        <text x="160" y="252" font-size="10" fill="var(--ink-3)">0</text>
+        <text x="600" y="252" font-size="10" fill="var(--ink-3)" text-anchor="end">180 (split 기준)</text>
+      </svg>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:6px;">직접 설계한 단기부채비율(STR)이 다른 모든 변수를 큰 차이로 앞섰습니다.</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">5주간 리더보드 추이</div>
+      <svg viewBox="0 0 700 180" style="width:100%; height:auto;">
+        <polyline points="40,40 180,30 320,60 460,20 600,46" fill="none" stroke="var(--teal)" stroke-width="3"/>
+        <g font-family="var(--body)" font-size="11">
+          <circle cx="40" cy="40" r="5" fill="var(--navy)"/><text x="40" y="100" text-anchor="middle" fill="var(--ink-2)">1주차</text><text x="40" y="118" text-anchor="middle" fill="var(--ink)" font-weight="700">2위</text>
+          <circle cx="180" cy="30" r="5" fill="var(--navy)"/><text x="180" y="100" text-anchor="middle" fill="var(--ink-2)">3주차</text><text x="180" y="118" text-anchor="middle" fill="var(--ink)" font-weight="700">3위</text>
+          <circle cx="320" cy="60" r="5" fill="var(--navy)"/><text x="320" y="100" text-anchor="middle" fill="var(--ink-2)">4주차</text><text x="320" y="118" text-anchor="middle" fill="var(--ink)" font-weight="700">5위</text>
+          <circle cx="460" cy="20" r="6" fill="var(--amber)"/><text x="460" y="100" text-anchor="middle" fill="var(--ink-2)">5주차(최종)</text><text x="460" y="118" text-anchor="middle" fill="var(--amber)" font-weight="700">4위 · 본선</text>
+        </g>
+      </svg>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:6px;">4주차에 시도한 자동화 기법들이 대부분 실패하며 5위까지 내려갔지만, 5주차에 RFM Rank·파라미터 동시 튜닝으로 회복해 본선에 진출했습니다.</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">핵심 파생변수 코드</div>
+      <div class="code-block"><span class="cm"># churn_resistance_score: R/F/M을 절대값이 아닌 백분위(rank)로 변환</span>
+<span class="cm"># → 극단값 영향 제거, seed 간 표준편차 20% 감소 (0.00090 → 0.00072)</span>
+r_rank = agg[<span class="cs">'recency_days'</span>].rank(pct=<span class="kw">True</span>)
+f_rank = agg[<span class="cs">'transaction_count'</span>].rank(pct=<span class="kw">True</span>)
+m_rank = agg[<span class="cs">'trans_amount_sum'</span>].rank(pct=<span class="kw">True</span>)
+
+agg[<span class="cs">'churn_resistance_score'</span>] = (f_rank + m_rank + (<span class="kw">1.0</span> - r_rank)) / <span class="kw">3.0</span></div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">실험 기록 (30회 이상 중 핵심 10건)</div>
+      <table class="exp-table">
+        <tr><th>시도</th><th>결과</th><th>채택</th></tr>
+        <tr class="ok"><td>단기부채비율(STR) 파생변수</td><td>AUC +0.0013</td><td> 5-seed 전승</td></tr>
+        <tr class="ok"><td>Optuna 하이퍼파라미터 튜닝</td><td>AUC +0.0008</td><td> 5-seed 4승 1패</td></tr>
+        <tr class="ok"><td>LightGBM 단독 (CatBoost/XGB 제외)</td><td>AUC +0.0009</td><td> std 대폭 감소</td></tr>
+        <tr class="ok"><td>전처리·모델 파라미터 동시 튜닝</td><td>AUC +0.0025</td><td> 10-seed 검증</td></tr>
+        <tr class="ok"><td>RFM Rank 통합 (팀원 기여)</td><td>std 20%↓</td><td> 최악 seed 개선</td></tr>
+        <tr class="no"><td>Finance 교차 피처 17개</td><td>AUC 변화 없음</td><td>✗ 5-seed 전패</td></tr>
+        <tr class="no"><td>유전 프로그래밍 수식 탐색 (907개)</td><td>3-fold↑ 5-fold↓</td><td>✗ fold 수 과적합</td></tr>
+        <tr class="no"><td>GA 피처 선택 (43→29개)</td><td>local 유지, LB 하락</td><td>✗ LB 과적합 확인</td></tr>
+        <tr class="no"><td>Finance 클러스터링(K-means)</td><td>AUC 하락</td><td>✗ local 하락</td></tr>
+        <tr class="no"><td>연속형→범주형 변환(binning)</td><td>AUC 하락</td><td>✗ 5-seed 전패</td></tr>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">교훈</div>
+      <p class="modal-quote">
+        도메인 지식 기반 파생변수가 자동화 기법(유전 프로그래밍, GA 피처선택)보다 효과적이었습니다.
+        피처는 양보다 질이 중요했고, 단일 seed 성능은 신뢰할 수 없다는 것을 30회 이상의 실험을 통해 확인했습니다.
+      </p>
+    </div>
+
+    <div class="pj-links" style="margin-top:28px;">
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/tree/main/projects/sas-korea-churn-ltv" class="pj-link-btn primary" target="_blank">GitHub에서 전체 코드 보기 →</a>
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/blob/main/projects/sas-korea-churn-ltv/%EC%A0%9C%ED%83%80%EB%B0%94%EC%9D%B4%ED%8A%B8%20%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf" class="pj-link-btn" target="_blank">발표 자료 (PDF)</a>
+    </div>
+  </div>
+</div>
 
 </div>
 </section>
@@ -847,6 +1023,18 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
 }, { threshold: 0.07 });
 document.querySelectorAll('.f').forEach(el => io.observe(el));
+
+function openProjectModal(id) {
+  const modal = document.getElementById('modal-' + id);
+  if (modal) { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeProjectModal(id) {
+  const modal = document.getElementById('modal-' + id);
+  if (modal) { modal.classList.remove('open'); document.body.style.overflow = ''; }
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; });
+});
 </script>
 </body>
 </html>
