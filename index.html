@@ -342,6 +342,18 @@ footer {
   .cr-grid { grid-template-columns:1fr; }
   .sch-box { flex-direction:column; gap:20px; }
 }
+@media(max-width:560px){
+  nav { padding:0 16px; }
+  .nav-links { gap:14px; }
+  .nav-links a { font-size:11px; white-space:nowrap; }
+  .nav-mark { font-size:10px; }
+  .wrap { padding:48px 18px; }
+  .sk-grid { grid-template-columns:1fr; }
+  .pj { padding:24px 20px; }
+  .modal-box { padding:24px 18px 32px; }
+  .modal-grid2 { grid-template-columns:1fr; }
+  .sch-box { grid-template-columns:1fr !important; }
+}
 </style>
 </head>
 <body>
@@ -500,7 +512,7 @@ footer {
     기술을 실질적인 비즈니스 솔루션으로 치환합니다.
   </p>
 
-  <div class="sk-grid" style="grid-template-columns: repeat(3, 1fr); gap: 16px;">
+  <div class="sk-grid" style="gap: 16px;">
     
     <div class="sk-card" style="min-height: 200px;">
       <p class="sk-h" style="font-family: var(--body); font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 14px;">
