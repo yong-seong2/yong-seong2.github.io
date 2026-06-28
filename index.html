@@ -610,20 +610,23 @@ footer {
   </div>
 
   <!-- 3. 수요급등 대비 안전재고량 최적화 (은상 성과 - 네이비 배지) -->
-  <div class="pj f">
+  <div class="pj f has-link" onclick="openProjectModal('bigpie-inventory')">
     <div class="pj-accent"></div>
     <div class="pj-top">
       <h3 class="pj-title">수요급등 대비 안전재고량 최적화</h3>
       <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">은상 (리더보드 1위)</span>
     </div>
-    <p class="pj-meta">2025.08 · AI융합 산학연계 해커톤 · 팀 빅파이 (4인) · 팀 리더</p>
-    <p class="pj-desc">음료 상품 수요 예측 모델 구축 + 온도·기념일 시나리오별 안전재고 최적화. WAPE 19.66%로 리더보드 1위 달성.</p>
+    <p class="pj-meta">2025.08 · AI융합 산학연계 해커톤 · 팀 빅파이 (4인) · 팀 리더 · 모델링·발표 담당</p>
+    <p class="pj-desc">음료 상품 수요 예측 모델 구축 + 온도·기념일 시나리오별 안전재고 최적화. WAPE 19.66%로 리더보드 1위를 달성했습니다. 팀장으로서 분석 방향을 잡고 이중 모델 구조를 직접 설계·구현했으며, 발표까지 맡았습니다.</p>
     <ul class="pj-list">
-      <li><strong>이중 모델:</strong> 고판매량(CatBoost + lag/rolling) · 저판매량(SARIMAX + Fallback) — 데이터 특성 기반 전략 분리.</li>
-      <li>+5°C 시나리오 → 판매량 +20~40% · 재고 30% 상향. 기념일 재주문 패턴 → 마케팅 전략 연계.</li>
+      <li><strong>이중 모델:</strong> 고판매량(CatBoost + lag/rolling) · 저판매량(SARIMAX + Fallback) — 판매 규모에 따라 데이터가 충분한지 여부로 전략을 분리해 설계.</li>
+      <li><strong>역할 분담:</strong> 팀장으로서 이중 모델 파이프라인과 보정 로직(α-스무딩, 스파이크 캡 등)을 직접 구현하고 발표를 진행했으며, 품목 분류 체계와 시나리오 분석은 팀원들과 함께 만들었습니다.</li>
+      <li>+5°C 시나리오 → 판매량 +20~40% · 재고 30% 상향. 기념일 직후 재구매율 변화 → 마케팅 전략 연계.</li>
     </ul>
-    <div class="img-ph"><strong>[ 삽입 권장 ]</strong>리더보드 캡처 · 온도 시나리오 예측 그래프</div>
     <div class="pj-stack"><span class="st">CatBoost</span><span class="st">SARIMAX</span><span class="st">Lag Feature</span><span class="st">Rolling Mean</span><span class="st">Python</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('bigpie-inventory')">자세히 보기 (모델·시나리오·코드) →</button>
+    </div>
   </div>
 
   <!-- 4. 해외 뉴스 빅데이터 기반 산업 동향 분석 (정규 기관 이력 - 딥 틸 배지) -->
@@ -730,7 +733,7 @@ footer {
 <!-- 타임라인 전용 도트 스타일 확장 구성 -->
 <style>
 .tl-dot.dot-amber { background: var(--amber); box-shadow: 0 0 0 1.5px var(--amber); }
-.tl-dot.dot-pink  { background: #FF5A79;     box-shadow: 0 0 0 1.5px #FF5A79; } /* 💥 딥 틸 대신 추가된 세련된 핑크레드 포인트 도트 */
+.tl-dot.dot-pink  { background: #FF5A79;     box-shadow: 0 0 0 1.5px #FF5A79; }
 .tl-dot.dot-navy  { background: var(--navy);  box-shadow: 0 0 0 1.5px var(--navy); }
 .tl-dot.dot-gray  { background: var(--line-2); box-shadow: 0 0 0 1.5px var(--line-2); }
 </style>
@@ -858,7 +861,7 @@ footer {
 .al { display:inline-block; font-family:var(--body); font-size:12px; padding:5px 12px; border-radius:5px; white-space:nowrap; font-weight:600; text-align: center; }
 .al-amber  { background: var(--amber-bg); color: var(--amber); border: 1.5px solid #FCD34D; }
 .al-navy   { background: var(--navy-bg);  color: var(--navy);  border: 1.5px solid #9AB5DC; }
-.al-pink   { background: #FFF0F3;         color: #FF5A79;      border: 1.5px solid #FFA3B1; } /* 💥 요청하신 본선진출 묶음용 전용 세련된 핑크 배지 */
+.al-pink   { background: #FFF0F3;         color: #FF5A79;      border: 1.5px solid #FFA3B1; }
 .al-teal   { background: var(--teal-bg);  color: var(--teal);  border: 1.5px solid #6DD4D0; }
 
 /* ── PROJECT MODAL ── */
@@ -908,7 +911,7 @@ footer {
 
 <div class="modal-overlay" id="modal-sas-korea" onclick="if(event.target===this) closeProjectModal('sas-korea')">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeProjectModal('sas-korea')">✕</button>
+    <button class="modal-close" onclick="closeProjectModal('sas-korea')">×</button>
     <p class="modal-eyebrow">PROJECT DETAIL</p>
     <h2 class="modal-title">고객 이탈 예측 및 LTV 분석</h2>
     <p class="modal-meta">제2회 데이터분석경진대회 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트(4인) · 팀 리더·본선 발표 · 2026.04—05</p>
@@ -998,16 +1001,16 @@ agg[<span class="cs">'churn_resistance_score'</span>] = (f_rank + m_rank + (<spa
       <div class="modal-sec-h">실험 기록 (30회 이상 중 핵심 10건)</div>
       <table class="exp-table">
         <tr><th>시도</th><th>결과</th><th>채택</th></tr>
-        <tr class="ok"><td>단기부채비율(STR) 파생변수</td><td>AUC +0.0013</td><td>✅ 5-seed 전승</td></tr>
-        <tr class="ok"><td>Optuna 하이퍼파라미터 튜닝</td><td>AUC +0.0008</td><td>✅ 5-seed 4승 1패</td></tr>
-        <tr class="ok"><td>LightGBM 단독 (CatBoost/XGB 제외)</td><td>AUC +0.0009</td><td>✅ std 대폭 감소</td></tr>
-        <tr class="ok"><td>전처리·모델 파라미터 동시 튜닝</td><td>AUC +0.0025</td><td>✅ 10-seed 검증</td></tr>
-        <tr class="ok"><td>RFM Rank 통합 (팀원 기여)</td><td>std 20%↓</td><td>✅ 최악 seed 개선</td></tr>
-        <tr class="no"><td>Finance 교차 피처 17개</td><td>AUC 변화 없음</td><td>✗ 5-seed 전패</td></tr>
-        <tr class="no"><td>유전 프로그래밍 수식 탐색 (907개)</td><td>3-fold↑ 5-fold↓</td><td>✗ fold 수 과적합</td></tr>
-        <tr class="no"><td>GA 피처 선택 (43→29개)</td><td>local 유지, LB 하락</td><td>✗ LB 과적합 확인</td></tr>
-        <tr class="no"><td>Finance 클러스터링(K-means)</td><td>AUC 하락</td><td>✗ local 하락</td></tr>
-        <tr class="no"><td>연속형→범주형 변환(binning)</td><td>AUC 하락</td><td>✗ 5-seed 전패</td></tr>
+        <tr class="ok"><td>단기부채비율(STR) 파생변수</td><td>AUC +0.0013</td><td>5-seed 전승, 채택</td></tr>
+        <tr class="ok"><td>Optuna 하이퍼파라미터 튜닝</td><td>AUC +0.0008</td><td>5-seed 4승 1패, 채택</td></tr>
+        <tr class="ok"><td>LightGBM 단독 (CatBoost/XGB 제외)</td><td>AUC +0.0009</td><td>std 대폭 감소, 채택</td></tr>
+        <tr class="ok"><td>전처리·모델 파라미터 동시 튜닝</td><td>AUC +0.0025</td><td>10-seed 검증, 채택</td></tr>
+        <tr class="ok"><td>RFM Rank 통합 (팀원 기여)</td><td>std 20%↓</td><td>최악 seed 개선, 채택</td></tr>
+        <tr class="no"><td>Finance 교차 피처 17개</td><td>AUC 변화 없음</td><td>5-seed 전패, 기각</td></tr>
+        <tr class="no"><td>유전 프로그래밍 수식 탐색 (907개)</td><td>3-fold↑ 5-fold↓</td><td>fold 수 과적합, 기각</td></tr>
+        <tr class="no"><td>GA 피처 선택 (43→29개)</td><td>local 유지, LB 하락</td><td>LB 과적합 확인, 기각</td></tr>
+        <tr class="no"><td>Finance 클러스터링(K-means)</td><td>AUC 하락</td><td>local 하락, 기각</td></tr>
+        <tr class="no"><td>연속형→범주형 변환(binning)</td><td>AUC 하락</td><td>5-seed 전패, 기각</td></tr>
       </table>
     </div>
 
@@ -1146,12 +1149,157 @@ agg[<span class="cs">'churn_resistance_score'</span>] = (f_rank + m_rank + (<spa
   </div>
 </div>
 
+<div class="modal-overlay" id="modal-bigpie-inventory" onclick="if(event.target===this) closeProjectModal('bigpie-inventory')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProjectModal('bigpie-inventory')">✕</button>
+    <p class="modal-eyebrow">PROJECT DETAIL</p>
+    <h2 class="modal-title">수요급등 대비 안전재고량 최적화</h2>
+    <p class="modal-meta">AI융합 산학연계 해커톤 · 팀 빅파이(4인) · 팀 리더·모델링·발표 담당 · 2025.08</p>
+
+    <div class="modal-grid2">
+      <div class="modal-card"><div class="modal-card-h">WAPE</div><div class="modal-card-v">19.66%</div></div>
+      <div class="modal-card"><div class="modal-card-h">결과</div><div class="modal-card-v">리더보드 1위</div></div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">이중 모델 구조 — 판매량 규모로 전략 분리</div>
+      <p style="font-size:13px; color:var(--ink-2); line-height:1.7;">
+        칵테일·믹서·도구 등 품목별로 판매 데이터의 양과 패턴이 크게 달라, 하나의 모델로 모든 품목을 예측하는 대신 <strong>판매 규모를 기준으로 두 갈래로 전략을 나눴습니다.</strong> 월평균 판매량과 데이터 보유 기간을 기준으로 고판매량 품목은 CatBoost, 저판매량 품목은 SARIMAX로 갈라 학습했고, SARIMAX 적합이 실패하는 경우를 대비한 Fallback 로직까지 넣어 어떤 품목이든 최소한의 예측치를 낼 수 있도록 설계했습니다.
+      </p>
+      <div class="modal-grid2" style="margin-top:14px;">
+        <div class="modal-card">
+          <div class="modal-card-h">고판매량 — CatBoost</div>
+          <p style="font-size:12.5px; color:var(--ink-2); line-height:1.6; margin-top:6px;">lag_1~3, rolling mean(3,6), 쿠폰·가격 lag, 품목 카테고리를 피처로 사용. depth=8, 1100 iterations.</p>
+        </div>
+        <div class="modal-card">
+          <div class="modal-card-h">저판매량 — SARIMAX</div>
+          <p style="font-size:12.5px; color:var(--ink-2); line-height:1.6; margin-top:6px;">계절성(seasonal_order 12개월)과 쿠폰·프로모션을 외생변수로 사용. 적합 실패 시 최근 3개월 평균으로 대체.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">시나리오1 — 온도 변화에 따른 판매량 추이</div>
+      <svg viewBox="0 0 700 220" style="width:100%; height:auto; font-family: var(--body);">
+        <g stroke="var(--line)" stroke-width="1">
+          <line x1="40" y1="20" x2="40" y2="180"/>
+          <line x1="40" y1="180" x2="660" y2="180"/>
+        </g>
+        <g font-size="10" fill="var(--ink-3)">
+          <text x="32" y="184" text-anchor="end">0</text>
+          <text x="32" y="134" text-anchor="end">500</text>
+          <text x="32" y="84" text-anchor="end">1000</text>
+          <text x="32" y="34" text-anchor="end">1500</text>
+        </g>
+        <!-- baseline (navy) -->
+        <polyline points="60,178 150,160 240,120 330,75 420,55 510,60 600,90" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
+        <!-- heatwave +5C (amber) -->
+        <polyline points="60,176 150,150 240,95 330,42 420,28 510,32 600,72" fill="none" stroke="var(--amber)" stroke-width="2.5"/>
+        <!-- summer band -->
+        <rect x="300" y="20" width="150" height="160" fill="var(--teal)" opacity="0.08"/>
+        <g font-size="10.5" fill="var(--ink-2)">
+          <text x="60" y="196" text-anchor="middle">3월</text>
+          <text x="150" y="196" text-anchor="middle">4월</text>
+          <text x="240" y="196" text-anchor="middle">5월</text>
+          <text x="330" y="196" text-anchor="middle">6월</text>
+          <text x="420" y="196" text-anchor="middle">7월</text>
+          <text x="510" y="196" text-anchor="middle">8월</text>
+          <text x="600" y="196" text-anchor="middle">9월</text>
+        </g>
+        <circle cx="430" cy="14" r="4" fill="var(--navy)"/><text x="440" y="18" fill="var(--ink-2)" font-size="11">기본 예측</text>
+        <circle cx="560" cy="14" r="4" fill="var(--amber)"/><text x="570" y="18" fill="var(--ink-2)" font-size="11">+5°C 시나리오</text>
+      </svg>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:6px;">여름철 평균 대비 +5°C 상승 시, 기본 예측 대비 판매량이 +20~40% 상승하는 것으로 나타나 해당 시나리오에서는 재고를 30% 이상 상향 조정하도록 제안했습니다.</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">시나리오2 — 기념일 전후 재구매율 변화</div>
+      <svg viewBox="0 0 700 240" style="width:100%; height:auto; font-family: var(--body);">
+        <g font-size="11" fill="var(--ink-2)">
+          <text x="0" y="14">2024 발렌타인</text>
+          <rect x="160" y="4" width="430" height="13" fill="var(--navy)" rx="2"/>
+          <rect x="160" y="19" width="338" height="13" fill="var(--teal)" rx="2"/>
+
+          <text x="0" y="50">2023 크리스마스</text>
+          <rect x="160" y="40" width="48" height="13" fill="var(--navy)" rx="2"/>
+          <rect x="160" y="55" width="182" height="13" fill="var(--teal)" rx="2"/>
+
+          <text x="0" y="86">2024 추석</text>
+          <rect x="160" y="76" width="176" height="13" fill="var(--navy)" rx="2"/>
+          <rect x="160" y="91" width="180" height="13" fill="var(--teal)" rx="2"/>
+
+          <text x="0" y="122">2023 연말</text>
+          <rect x="160" y="112" width="202" height="13" fill="var(--navy)" rx="2"/>
+          <rect x="160" y="127" width="50" height="13" fill="var(--teal)" rx="2"/>
+
+          <text x="0" y="158">2024 화이트데이</text>
+          <rect x="160" y="148" width="172" height="13" fill="var(--navy)" rx="2"/>
+          <rect x="160" y="163" width="240" height="13" fill="var(--teal)" rx="2"/>
+        </g>
+        <g font-size="10.5" font-weight="600">
+          <rect x="160" y="206" width="14" height="10" fill="var(--navy)" rx="2"/><text x="180" y="215" fill="var(--ink-2)" font-weight="500">기념일 전 (D-5~D-1)</text>
+          <rect x="380" y="206" width="14" height="10" fill="var(--teal)" rx="2"/><text x="400" y="215" fill="var(--ink-2)" font-weight="500">기념일 후 (D+1~D+5)</text>
+        </g>
+      </svg>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:6px;">기념일 직후 재구매율이 오르는 패턴은 불규칙한 수요 급등과 달리 반복적으로 나타나, 후속 프로모션과 신규 고객 추적을 통한 충성 고객 전환 전략으로 연결했습니다.</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">핵심 코드 — 판매량 규모에 따른 모델 분기</div>
+      <div class="code-block"><span class="cm"># 월평균 판매량 ≥3, 데이터 보유 ≥6개월이면 고판매량(CatBoost), 아니면 저판매량(SARIMAX)</span>
+<span class="kw">def</span> mark_volume(mon, thr=<span class="kw">3.0</span>, min_m=<span class="kw">6</span>):
+    stat = mon.groupby(<span class="cs">"product_id"</span>)[<span class="cs">"qty_month"</span>].agg([<span class="cs">"mean"</span>,<span class="cs">"count"</span>]).reset_index()
+    stat[<span class="cs">"bucket"</span>] = np.where((stat[<span class="cs">"mean"</span>]>=thr) & (stat[<span class="cs">"count"</span>]>=min_m), <span class="cs">"high"</span>, <span class="cs">"low"</span>)
+    <span class="kw">return</span> stat[[<span class="cs">"product_id"</span>,<span class="cs">"bucket"</span>]]
+
+<span class="cm"># 예측치와 직전월 실측치를 변동계수(CV) 기반 alpha로 블렌딩해 노이즈 완화</span>
+<span class="kw">def</span> pick_alpha(bucket, qty_series):
+    s = qty_series.dropna()
+    cv = float(s.std(ddof=<span class="kw">0</span>) / max(s.mean(), <span class="kw">1e-6</span>)) <span class="kw">if</span> len(s)>=<span class="kw">3</span> <span class="kw">else</span> <span class="kw">1.0</span>
+    <span class="kw">if</span> bucket == <span class="cs">"high"</span> <span class="kw">and</span> cv < <span class="kw">0.8</span>: <span class="kw">return</span> <span class="kw">0.12</span>
+    <span class="kw">if</span> cv > <span class="kw">1.2</span>: <span class="kw">return</span> <span class="kw">0.18</span>
+    <span class="kw">return</span> <span class="kw">0.15</span></div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">시도와 보정 (Learning by Doing)</div>
+      <table class="exp-table">
+        <tr><th>시도</th><th>결과</th><th>처리</th></tr>
+        <tr class="no"><td>CPI·GDP·CSI 등 외생 거시지표 다수 투입</td><td>오히려 성능 저조</td><td>제거, 모델 단순화</td></tr>
+        <tr class="ok"><td>판매 규모 기준 CatBoost / SARIMAX 분리</td><td>품목별 데이터 특성 반영</td><td>채택</td></tr>
+        <tr class="ok"><td>예측치-직전월 실측치 α-블렌딩</td><td>변동성 큰 품목 노이즈 완화</td><td>CV 기반 가변 α로 채택</td></tr>
+        <tr class="ok"><td>직전 6개월 평균 기반 스파이크 캡</td><td>비현실적 급등 예측 방지</td><td>채택 (high 1.35배, low 1.6배)</td></tr>
+        <tr class="ok"><td>'첫 발주 안내서' 별도 앵커 로직</td><td>일반 수요 패턴과 다른 항목 보정</td><td>신규고객 첫 주문 패턴 기반으로 재설계</td></tr>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">팀장으로서</div>
+      <p style="font-size:13.5px; color:var(--ink-2); line-height:1.8;">
+        제출 마감을 앞두고 시간이 많지 않았던 상황에서, 팀원들에게 세부 구현을 일일이 지시하기보다 <strong>전체 분석 방향을 먼저 정하고 각자의 작업을 믿고 맡기는 쪽</strong>을 선택했습니다. 모델링과 보정 로직은 직접 구현하면서 팀원들이 진행하는 품목 분류 체계와 시나리오 분석이 같은 방향을 보고 가도록 중간중간 맞춰가는 역할을 맡았습니다. 발표 자료는 마감 2시간 전에야 완성됐고, 2박 3일 동안 거의 잠을 못 잔 상태로 발표까지 마무리해야 했는데, 그 상황에서도 흐트러지지 않고 리더보드 1위 결과를 끝까지 설명해낸 경험이 가장 기억에 남습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">교훈</div>
+      <p class="modal-quote">
+        거시 지표를 더 많이 넣는 것보다, 데이터 특성에 맞게 모델을 단순화하고 한계를 인정한 뒤 보정하는 방식이 더 안정적인 예측을 만들었습니다. 정확한 수치 예측 자체에 집착하다가, 비즈니스 의사결정에 쓸 수 있는 합리적인 범위의 예측으로 관점을 옮긴 것이 이 프로젝트에서 얻은 가장 큰 전환점이었습니다.
+      </p>
+    </div>
+
+    <div class="pj-links" style="margin-top:28px;">
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/tree/main/projects/bigpie-inventory-optimization" class="pj-link-btn primary" target="_blank">GitHub 레포 보기 →</a>
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/blob/main/projects/bigpie-inventory-optimization/%EB%B9%85%ED%8C%8C%EC%9D%B4_%ED%95%B4%EC%BB%A4%ED%86%A4_%EB%B0%9C%ED%91%9C_%EC%9E%90%EB%A3%8C.pdf" class="pj-link-btn" target="_blank">발표 자료 (PDF)</a>
+    </div>
+  </div>
+</div>
+
 </div>
 </section>
 
 <footer>
   <p>조용성 · 전남대학교 빅데이터융합학과 · 경영학 복수전공</p>
-  <p style="margin-top:8px;">snaptoover57@naver.com &nbsp;·&nbsp; GitHub: [주소]</p>
+  <p style="margin-top:8px;">snaptoover57@naver.com</p>
 </footer>
 
 <script>
