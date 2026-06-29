@@ -650,20 +650,24 @@ footer {
     </div>
   </div>
 
-  <!-- 5. 뉴스 감성 기반 섹터 ETF 투자 추천 (본선 진출 묶음 - 세련된 핑크 배지) -->
-  <div class="pj f">
+  <!-- 5. NH 빅데이터 분석대회 - Blueprinter (본선 진출 - 핑크 배지) -->
+  <div class="pj f has-link" onclick="openProjectModal('nh-blueprinter')">
     <div class="pj-accent"></div>
     <div class="pj-top">
-      <h3 class="pj-title">뉴스 감성 기반 섹터 ETF 단기 투자 추천</h3>
-      <span class="badge" style="background: #FFF0F3; color: #FF5A79; border: 1.5px solid #FFA3B1;">본선 진출</span>
+      <h3 class="pj-title">Blueprinter — Azure 생성형 AI 기반 ETF 추천 서비스</h3>
+      <span class="badge" style="background: #FFF0F3; color: #FF5A79; border: 1.5px solid #FFA3B1;">본선 진출 (87팀 중 30팀)</span>
     </div>
-    <p class="pj-meta">2024 하반기 · NH 빅데이터 분석대회</p>
-    <p class="pj-desc">KoBERT 감성분석으로 섹터별 경제지표점수(빈도·감성·시간가중치 결합)를 산출하고 투자성향별 맞춤 ETF 추천 알고리즘을 설계했습니다.</p>
+    <p class="pj-meta">2024.09 — 12 · 2024 NH투자증권 빅데이터 경진대회 · 팀 Blueprinter(3인) · 팀 리더</p>
+    <p class="pj-desc">고객의 투자 성향·자산 규모·숙련도와 경제 뉴스 데이터를 결합해 단기 ETF 투자 전략을 추천하는 Azure 기반 생성형 AI 챗봇 서비스입니다. 예선에서는 거래 데이터 상관분석의 한계를 확인했고, 본선에서는 GDELT 뉴스 데이터 기반 종합경제점수로 분석 방향을 전환했습니다.</p>
     <ul class="pj-list">
-      <li>위험추구형(변동성 z값) vs. 안정추구형(Sharpe 비율) 이중 추천 알고리즘 구현.</li>
-      <li>아이디어 최초 기획 후 1년 만에 NLP 기반으로 고도화 — 지속적 축적의 결과.</li>
+      <li><strong>종합경제점수 설계:</strong> GDELT 뉴스 데이터를 DBSCAN으로 11개 섹터로 클러스터링하고, 감정 점수·빈도 점수·시간 가중치를 결합해 섹터별 경제 흐름을 정량화.</li>
+      <li><strong>역할 분담:</strong> 팀 리더로서 아이디어를 최초 기획했고, 데이터 EDA·상관분석·종합경제점수 설계 등 데이터 분석·모델링을 직접 담당했으며, Azure 챗봇 연동은 동료가 맡았습니다.</li>
+      <li><strong>개선 과정:</strong> KoBERT(느림·고비용) → GDELT(실시간) 전환, 감정 점수를 3단계 범주형에서 연속형으로 세분화, 매수만 가능했던 추천을 매수+매도로 확장.</li>
     </ul>
-    <div class="pj-stack"><span class="st">KoBERT</span><span class="st">감성분석</span><span class="st">시간가중치</span><span class="st">Sharpe Ratio</span><span class="st">Python</span></div>
+    <div class="pj-stack"><span class="st">GDELT</span><span class="st">DBSCAN</span><span class="st">Azure OpenAI</span><span class="st">KMeans</span><span class="st">Python</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('nh-blueprinter')">자세히 보기 (분석·시스템·개선과정) →</button>
+    </div>
   </div>
 
 </div>
@@ -1411,7 +1415,117 @@ agg[<span class="cs">'churn_resistance_score'</span>] = (f_rank + m_rank + (<spa
     </div>
   </div>
 </div>
+<div class="modal-overlay" id="modal-nh-blueprinter" onclick="if(event.target===this) closeProjectModal('nh-blueprinter')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProjectModal('nh-blueprinter')">✕</button>
+    <p class="modal-eyebrow">PROJECT DETAIL</p>
+    <h2 class="modal-title">Blueprinter — Azure 생성형 AI 기반 ETF 추천 서비스</h2>
+    <p class="modal-meta">2024 NH투자증권 빅데이터 경진대회 · 팀 Blueprinter(3인) · 팀 리더 · 2024.09—12</p>
 
+    <div class="modal-grid2">
+      <div class="modal-card"><div class="modal-card-h">결과</div><div class="modal-card-v">본선 진출 (87→30팀)</div></div>
+      <div class="modal-card"><div class="modal-card-h">핵심 지표</div><div class="modal-card-v">종합경제점수</div></div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">배경 — 왜 단기 투자 추천인가</div>
+      <p style="font-size:13px; color:var(--ink-2); line-height:1.7;">
+        ETF는 투자 접근성이 높아 인기 있는 상품이지만, 정보량이 방대해지면서 개인이 분석하기 어려워졌고 증권사 간 경쟁도 심화되고 있습니다. 단기 투자 전략은 거래량을 늘려 증권사 수수료 수익과 차별화된 서비스 경쟁력을 동시에 확보할 수 있다는 점에서, 생성형 AI 기반 맞춤형 ETF 추천 서비스를 기획했습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">예선 — 거래 데이터 상관분석의 한계</div>
+      <p style="font-size:13px; color:var(--ink-2); line-height:1.7;">
+        NH 제공 8개 데이터(ETF 보유 종목, 배당, 수익률, 고객 유형 등)를 병합해 변동성·수익률·고객 유형별 상관분석을 수행했습니다. 변동성과 수익률 간 회귀분석을 시도했지만 유의미한 결과를 얻지 못했고, 배당금·배당주기와 수익률의 관계도 뚜렷하지 않았습니다. 다만 고객 유형(중분류 코드)별로 Sharpe 비율과 변동성에서 일관된 패턴이 확인되어, <strong>맞춤형 추천 자체의 유의미성</strong>은 근거를 갖췄습니다. 이 결과로 "기존 거래 데이터만으로는 단기 투자 전략 도출에 한계가 있다"는 결론에 도달해, 본선에서는 뉴스·사회 지표 데이터를 결합하는 방향으로 분석을 전환했습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">본선 — 종합경제점수 설계</div>
+      <p style="font-size:13px; color:var(--ink-2); line-height:1.7;">
+        GDELT(Global Database of Events, Language, and Tone) 뉴스 데이터를 활용했습니다. EventCode를 기반으로 DBSCAN 클러스터링을 적용해 11개 섹터(Technology, Financial Services, Energy 등)로 분류하고, 섹터별로 감정 점수·빈도 점수·시간 가중치를 결합한 종합경제점수를 계산했습니다.
+      </p>
+      <svg viewBox="0 0 700 130" style="width:100%; height:auto; font-family: var(--body); margin-top:10px;">
+        <g font-size="13" font-weight="600" fill="var(--ink)">
+          <rect x="10" y="10" width="180" height="40" rx="8" fill="var(--navy-bg)" stroke="var(--navy)" stroke-width="1.5"/>
+          <text x="100" y="35" text-anchor="middle" font-size="12">평균 감정점수 × 0.5</text>
+
+          <rect x="220" y="10" width="150" height="40" rx="8" fill="var(--teal-bg)" stroke="var(--teal)" stroke-width="1.5"/>
+          <text x="295" y="35" text-anchor="middle" font-size="12">빈도점수 × 0.3</text>
+
+          <rect x="400" y="10" width="170" height="40" rx="8" fill="var(--amber-bg)" stroke="var(--amber)" stroke-width="1.5"/>
+          <text x="485" y="35" text-anchor="middle" font-size="12">시간가중치 × 0.2</text>
+
+          <text x="195" y="35" text-anchor="middle" font-size="16">+</text>
+          <text x="385" y="35" text-anchor="middle" font-size="16">+</text>
+
+          <rect x="180" y="80" width="340" height="40" rx="8" fill="var(--navy)" />
+          <text x="350" y="105" text-anchor="middle" font-size="13" fill="white">종합경제점수</text>
+        </g>
+        <g stroke="var(--ink-3)" stroke-width="1.5" fill="none">
+          <line x1="295" y1="50" x2="350" y2="78"/>
+        </g>
+      </svg>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:8px;">시간가중치 = GoldsteinScale × e<sup>−λ×시간차이</sup> (최신 뉴스일수록 높은 가중치). 감정 점수에 가장 높은 비중(0.5)을 둔 이유는 섹터의 경제 흐름을 가장 직접적으로 반영하기 때문입니다.</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">추천 서비스 3종</div>
+      <div class="modal-grid2">
+        <div class="modal-card">
+          <div class="modal-card-h">매수 추천</div>
+          <p style="font-size:12.5px; color:var(--ink-2); line-height:1.6; margin-top:6px;">고객 정보로 클러스터링 후, 안정형은 Sharpe 비율·변동성, 위험형은 변동성 중심으로 ETF 추천.</p>
+        </div>
+        <div class="modal-card">
+          <div class="modal-card-h">매도 추천</div>
+          <p style="font-size:12.5px; color:var(--ink-2); line-height:1.6; margin-top:6px;">보유 ETF의 섹터 종합경제점수가 낮으면 매도 권유. 급격한 시장 변화에 빠르게 대응하기 위해 종목 특성보다 경제 흐름 중심으로 단순화.</p>
+        </div>
+        <div class="modal-card">
+          <div class="modal-card-h">오늘의 주목/위험 분야</div>
+          <p style="font-size:12.5px; color:var(--ink-2); line-height:1.6; margin-top:6px;">일별 섹터 종합경제점수 기준 상위/하위 섹터를 안내해 단기 투자 전략을 구체적으로 지원.</p>
+        </div>
+        <div class="modal-card">
+          <div class="modal-card-h">Azure 챗봇 "올리"</div>
+          <p style="font-size:12.5px; color:var(--ink-2); line-height:1.6; margin-top:6px;">NH 마스코트를 활용한 대화형 인터페이스로 타 증권사 대비 차별화. (Azure 연동은 동료 담당)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">개선 과정 — 예선 대비 본선에서 바뀐 것</div>
+      <table class="exp-table">
+        <tr><th>항목</th><th>예선</th><th>본선</th></tr>
+        <tr class="ok"><td>감정분석 방식</td><td>KoBERT (수 시간 소요, 높은 계산 비용)</td><td>GDELT 데이터 (실시간, 비용 절감)</td></tr>
+        <tr class="ok"><td>감정 점수 체계</td><td>0/1/2 범주형 (부정·중립·긍정)</td><td>-10~10 연속형으로 세분화</td></tr>
+        <tr class="ok"><td>추천 방향</td><td>매수만 가능</td><td>매수+매도로 확장</td></tr>
+        <tr class="ok"><td>섹터 분류</td><td>키워드 직접 정의</td><td>GDELT EventCode 기반 (정확도 86%, 3배 향상)</td></tr>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">역할</div>
+      <p style="font-size:13.5px; color:var(--ink-2); line-height:1.8;">
+        팀 리더로서 <strong>아이디어를 최초 기획</strong>했고, NH 제공 데이터 EDA·상관분석과 GDELT 기반 종합경제점수 설계·DBSCAN 클러스터링 등 <strong>데이터 분석과 모델링을 직접 담당</strong>했습니다. Azure OpenAI 챗봇 연동과 프롬프트 엔지니어링은 동료가 맡았습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">한계와 발전 방향</div>
+      <p class="modal-quote">
+        현재는 고정된 선지를 선택하는 방식의 추천이지만, 데이터가 누적되면 더 큰 트랜스포머 모델과 강화학습을 결합한 형태로 고도화할 계획을 보고서에 담았습니다. 또한 단기 투자 중심에서 배당 주기·종목 성장성을 포함한 중장기 투자 전략까지 확장하는 방향도 함께 제시했습니다.
+      </p>
+    </div>
+
+    <div class="pj-links" style="margin-top:28px;">
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/tree/main/projects/nh-blueprinter-etf" class="pj-link-btn primary" target="_blank">GitHub 레포 보기 →</a>
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/blob/main/projects/nh-blueprinter-etf/NH_Blueprinter_%EB%B3%B8%EC%84%A0.pdf" class="pj-link-btn" target="_blank">발표 자료 (PDF)</a>
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/blob/main/projects/nh-blueprinter-etf/Blueprinter_%EB%B6%84%EC%84%9D%EB%B3%B4%EA%B3%A0%EC%84%9C.docx" class="pj-link-btn" target="_blank">분석보고서 (DOCX)</a>
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/blob/main/projects/nh-blueprinter-etf/NH_blueprinter_code.zip" class="pj-link-btn" target="_blank">코드 (ZIP)</a>
+    </div>
+  </div>
+</div>
+  
 </div>
 </section>
 
