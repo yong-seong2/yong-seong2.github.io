@@ -38,7 +38,7 @@
 - `Blueprinter_분석보고서.docx` — 예선 분석보고서
 - `NH_Blueprinter_본선.pptx` — 본선 발표자료
 - `2024_NH_투자증권_빅데이터_경진대회_자격인증서.pdf` — 본선 진출 인증서
-- `NH_blueprinter_code.zip` — EDA·클러스터링·종합경제점수 산출 및 추천 챗봇 코드 (API 키는 환경변수 처리, 자세한 내용은 압축 안의 `CODE_README.md` 참고)
+- `nh_blueprinter_code.zip` — EDA·클러스터링·종합경제점수 산출 및 추천 챗봇 코드 (API 키는 환경변수 처리, 자세한 내용은 압축 안의 `CODE_README.md` 참고)
 
 ## 역할
 팀 리더로서 아이디어를 최초 기획했고, NH 제공 데이터 EDA·상관분석과 GDELT 기반 종합경제점수 설계·클러스터링 등 데이터 분석·모델링을 담당했습니다.
