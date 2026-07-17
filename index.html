@@ -96,6 +96,14 @@ nav {
   opacity:0; animation: rise .5s .3s ease forwards;
 }
 
+.h-checklist {
+  display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px;
+  opacity:0; animation: rise .5s .35s ease forwards;
+}
+.h-check-item { display: flex; gap: 10px; font-size: 13.5px; color: var(--ink-2); line-height: 1.6; }
+.h-check-item .ck { color: var(--teal); font-weight: 700; flex-shrink: 0; }
+.h-check-item strong { color: var(--ink); font-weight: 700; }
+
 .h-pills {
   display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; margin-bottom: 52px;
   opacity:0; animation: rise .5s .4s ease forwards;
@@ -190,6 +198,12 @@ nav {
 }
 .about-p { font-size: 14.5px; color: var(--ink-2); line-height: 1.92; margin-bottom: 32px; }
 .about-p strong { color: var(--ink); font-weight: 600; }
+
+.about-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+.about-card { background: var(--white); border: 1.5px solid var(--line); border-radius: 12px; padding: 20px 22px; }
+.about-card-h { display: flex; align-items: center; gap: 9px; font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 9px; }
+.about-card-h::before { content:''; width: 4px; height: 15px; border-radius: 2px; background: var(--teal); flex-shrink: 0; }
+.about-card-p { font-size: 13.5px; color: var(--ink-2); line-height: 1.78; }
 
 .q-title { font-family: var(--body); font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
 .q-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -379,11 +393,13 @@ footer {
       쌓다 보면<br>결국 <span class="hl">닿습니다</span>.
     </h1>
     <p class="h-lead">
-      데이터의 가치는 화려한 알고리즘보다 복잡한 현상을 비즈니스 논리로 정밀하게 정의할 때 드러난다고 생각합니다.
-      인문학적 시야와 공학적인 분석을 융합하여 지난 3년간 다양한 도메인의 실전 문제를 해결해 왔습니다. 이러한 문제 해결 과정에서 
-      기술에만 의존하기보다, 동료들의 서로 다른 강점을 연결하고 유연하게 조율하는 소통에 집중했습니다. 그 결과 수많은 팀원과 함께 
-      전국 규모의 성과를 이끌어낼 수 있었습니다. 현장의 공백을 메우고 실질적인 솔루션을 도출하는 데이터 분석가입니다.
+      인문학적 시야와 공학적인 분석을 융합해 지난 3년간 다양한 도메인의 실전 문제를 해결해 왔습니다. 화려한 알고리즘보다 복잡한 현상을 비즈니스 논리로 정밀하게 정의할 때, 데이터의 진짜 가치가 드러난다고 믿습니다.
     </p>
+    <div class="h-checklist">
+      <div class="h-check-item"><span class="ck">✓</span><span><strong>다도메인 경험:</strong> 금융 · CRM · 헬스케어 · SCM · 아동복지 등 5개 도메인에서 프로젝트 수행</span></div>
+      <div class="h-check-item"><span class="ck">✓</span><span><strong>성과 입증:</strong> SAS KOREA 전국 4위, 호남통계청 최우수상 등 대회 입상</span></div>
+      <div class="h-check-item"><span class="ck">✓</span><span><strong>팀장 경험:</strong> 4개 프로젝트에서 팀장 및 발표 담당</span></div>
+    </div>
     <div class="h-pills">
   <span class="pill">머신러닝</span>
   <span class="pill">자연어처리 · NLP</span>
@@ -483,10 +499,16 @@ footer {
 
     <div class="f">
       <p class="about-quote">"숫자 뒤의 이야기를 찾고 싶었습니다."</p>
-      <p class="about-p">
-        고등학교 때 가장 좋아했던 과목은 사회였습니다. 사회현상이 어떤 구조로 작동하는지, 수치로 무엇을 설명할 수 있는지가 궁금했거든요. 그 감각이 빅데이터로 이어졌고, <strong>기술보다 문제를 먼저 보는 방식</strong>이 지금의 저를 만들었습니다.<br><br>
-        대학 입학 후 현상 뒤에 숨겨진 정량적 지표를 발굴하고자 수많은 프로젝트와 경진대회에 부딪히며 데이터 리터리시를 체득해 왔습니다. 이론과 현장의 공백을 메우기 위해 끊임없이 실험을 기록하고 모델을 고도화했던 시간들은 대외적인 성과뿐만 아니라, 함께하는 동료들의 깊은 신뢰를 얻는 밑거름이 되었습니다. 축적된 통계적 직관과 비즈니스 논리를 바탕으로, <strong>기술과 경영의 교차점</strong>에서 현장에 즉시 기여할 수 있는 실질적인 솔루션을 도출하는 분석가가 목표입니다.
-      </p>
+      <div class="about-cards">
+        <div class="about-card">
+          <p class="about-card-h">기술보다 문제를 먼저 보는 눈</p>
+          <p class="about-card-p">현상 뒤에 숨겨진 정량적 지표를 발굴하기 위해 여러 프로젝트와 경진대회를 거치며 데이터 리터러시를 쌓아 왔습니다. 이론과 현장의 공백을 메우기 위해 실험을 기록하고 모델을 고도화하는 과정을 반복합니다.</p>
+        </div>
+        <div class="about-card">
+          <p class="about-card-h">팀원들과 함께 결과를 만드는 협업 방식</p>
+          <p class="about-card-p">프로젝트에서는 분석 방향을 잡고 파이프라인 구현을 주도하는 동시에, 팀원들의 의견을 조율해 시각화와 최종 발표를 맡아왔습니다. 서로 다른 강점을 가진 팀원들과 결과를 만들어가는 과정에 집중합니다.</p>
+        </div>
+      </div>
       <p class="q-title">관심 도메인 · 풀고 싶은 문제</p>
       <div class="q-grid">
         <div class="q-item"><span>금융 · 투자</span>뉴스 텍스트로 시장 신호를 포착할 수 있을까?</div>
@@ -732,45 +754,7 @@ footer {
 <section id="credentials" class="sec-bg">
 <div class="wrap">
   <p class="sec-eye">Credentials</p>
-  <h2 class="sec-h">자격증 · 장학 · 수상</h2>
-
-  <p style="font-family:var(--body);font-size:12px;font-weight:700;color:var(--navy);margin-bottom:12px;">장학 이력</p>
-  
-  <!-- 디자인 구조를 전면 리브랜딩한 장학 이력 섹션 -->
-  <div class="sch-box f" style="background: var(--white); border: 1.5px solid var(--line); border-radius: 14px; padding: 32px; margin-bottom: 44px; display: grid; grid-template-columns: 240px 1fr; gap: 40px; box-shadow: 0 4px 18px rgba(26,58,107,0.04); position: relative; overflow: hidden;">
-    
-    <!-- 왼쪽: 누적 수혜 및 성과 강조 영역 (입체감 부여) -->
-    <div style="background: var(--bg); border-radius: 10px; padding: 24px; text-align: center; display: flex; flex-direction: column; justify-content: center; border: 1px solid var(--line);">
-      <span style="font-family: var(--body); font-size: 11px; color: #FF5A79; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">SCHOLARSHIP MILESTONE</span>
-      <span class="sch-n" style="font-family: var(--serif); font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1;">2,400만원+</span>
-      <p class="sch-sub" style="font-family: var(--body); font-size: 12px; color: var(--ink-3); font-weight: 600; margin-top: 8px;">누적 수혜 장학금</p>
-    </div>
-    
-    <!-- 오른쪽: 세련된 타임라인/리스트형 상세 내역 (자격증 박스와의 차별화) -->
-    <div style="display: flex; flex-direction: column; justify-content: center; gap: 12px;">
-      <div style="display: flex; gap: 16px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
-        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 600;">2026-1</span>
-        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">교내 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;"></span></p>
-      </div>
-      <div style="display: flex; gap: 16px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
-        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 600;">2024 / 25</span>
-        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">전남대학교 산학협력단 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(2회 수혜)</span></p>
-      </div>
-      <div style="display: flex; gap: 16px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
-        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 600;">2025-1/2</span>
-        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">푸른등대 삼성 생활비 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(2회 수혜)</span></p>
-      </div>
-      <div style="display: flex; gap: 16px; align-items: baseline; border-bottom: 1px dashed var(--line); padding-bottom: 8px;">
-        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 700;">2024-1/2</span>
-        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">미래에셋희망재단 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(2회 수혜)</span></p>
-      </div>
-      <div style="display: flex; gap: 16px; align-items: baseline;">
-        <span style="font-family: var(--mono); font-size: 11px; color: var(--ink-3); font-weight: 600;">2021.03</span>
-        <p style="font-size: 14px; font-weight: 700; color: var(--ink);">대학 입학 성적 장학금 <span style="font-size: 12px; color: var(--ink-3); font-weight: 500;">(전액 장학 수혜)</span></p>
-      </div>
-    </div>
-
-  </div>
+  <h2 class="sec-h">자격증 · 수상</h2>
 
   <p style="font-family:var(--body);font-size:12px;font-weight:700;color:var(--navy);margin-bottom:12px;">자격증</p>
   <div class="cr-grid f" style="margin-bottom:40px;">
