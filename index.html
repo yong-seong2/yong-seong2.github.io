@@ -216,6 +216,21 @@ nav {
 .q-item:hover { border-color: var(--navy); box-shadow: 0 2px 10px rgba(26,58,107,.08); }
 .q-item span { display: block; font-family: var(--body); font-size: 11px; color: var(--navy); font-weight: 700; margin-bottom: 5px; }
 
+.stack-groups { display: flex; flex-direction: column; gap: 18px; }
+.stack-group-label { display: block; font-family: var(--body); font-size: 11px; font-weight: 700; color: var(--ink-3); letter-spacing: .04em; margin-bottom: 10px; }
+.stack-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-chip {
+  background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;
+  padding: 6px 15px; border-radius: 8px; font-size: 12.5px; font-weight: 600;
+  transition: background .15s, color .15s;
+}
+.stack-chip:hover { background: var(--navy); color: #fff; }
+.stack-chip.tool {
+  background: var(--bg-soft); color: var(--ink-2); border: 1px solid var(--line);
+  font-family: var(--mono); font-size: 11.5px; font-weight: 500; border-radius: 6px;
+}
+.stack-chip.tool:hover { background: var(--navy-bg); color: var(--navy); border-color: #9AB5DC; }
+
 /* ── SKILLS ── */
 .sk-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
 .sk-card {
@@ -347,7 +362,7 @@ footer {
 @media(max-width:780px){
   nav { padding:0 20px; }
   .hero-wrap { grid-template-columns:1fr; padding:80px 24px 40px; }
-  .h-right { display:none; }
+  .h-right { margin-top: 8px; }
   .wrap { padding:64px 24px; }
   .about-layout { grid-template-columns:1fr; }
   .id-card { position:static; }
@@ -377,7 +392,6 @@ footer {
   <span class="nav-mark">JO · YONGSEONG</span>
   <ul class="nav-links">
     <li><a href="#about">소개</a></li>
-    <li><a href="#skills">기술</a></li>
     <li><a href="#projects">프로젝트</a></li>
     <li><a href="#timeline">이력</a></li>
     <li><a href="#credentials">자격·수상</a></li>
@@ -400,14 +414,6 @@ footer {
       <div class="h-check-item"><span class="ck">✓</span><span><strong>성과 입증:</strong> SAS KOREA 전국 4위, 호남통계청 최우수상 등 대회 입상</span></div>
       <div class="h-check-item"><span class="ck">✓</span><span><strong>팀장 경험:</strong> 팀장 4회를 포함해, 수상 대회 발표는 항상 직접 담당</span></div>
     </div>
-    <div class="h-pills">
-  <span class="pill">머신러닝</span>
-  <span class="pill">자연어처리 · NLP</span>
-  <span class="pill">LLM 엔지니어링</span>
-  <span class="pill">비즈니스 인사이트</span>
-  <span class="pill">SCM · CRM</span>
-  <span class="pill">데이터 분석</span>
-</div>
   </div>
 
   <div class="h-right">
@@ -476,7 +482,6 @@ footer {
         <div class="id-row"><span class="id-k">전공</span><span class="id-v">빅데이터융합학 + 경영학 복수전공</span></div>
         <div class="id-row"><span class="id-k">경력</span><span class="id-v">GIST(광주과학기술원) 연구 인턴</span></div>
         <div class="id-row"><span class="id-k">학점</span><span class="id-v">4.17 / 4.5</span></div>
-        <div class="id-row"><span class="id-k">최고 학점</span><span class="id-v">4.5 (21학점) / 4.5</span></div>
         
         <div class="id-row" style="display: flex; justify-content: space-between; align-items: flex-start;">
           <span class="id-k" style="margin-top: 4px;">핵심 자격</span>
@@ -492,8 +497,6 @@ footer {
           <span class="id-k" style="margin-top: 4px;">관심 도메인</span>
           <span class="id-v" style="text-align: right; max-width: 75%; word-break: keep-all;">금융투자 · CRM · SCM<br>머신러닝</span>
         </div>
-        
-        <div class="id-row" style="border:none;"><span class="id-k">이메일</span><span class="id-v">snaptoover57@naver.com</span></div>
       </div>
     </div>
 
@@ -509,73 +512,27 @@ footer {
           <p class="about-card-p">프로젝트에서는 분석 방향을 잡고 파이프라인 구현을 주도하는 동시에, 팀원들의 의견을 조율해 시각화와 최종 발표를 맡아왔습니다. 서로 다른 강점을 가진 팀원들과 결과를 만들어가는 과정에 집중합니다.</p>
         </div>
       </div>
-      <p class="q-title">관심 도메인 · 풀고 싶은 문제</p>
-      <div class="q-grid">
-        <div class="q-item"><span>금융 · 투자</span>뉴스 텍스트로 시장 신호를 포착할 수 있을까?</div>
-        <div class="q-item"><span>의사결정 · LLM</span>학술적으로 검증된 방법론으로 일상의 선택을 도울 수 있을까?</div>
-        <div class="q-item"><span>고객 관계 관리 · CRM</span>데이터로 고객의 행동 패턴을 예측하고, LTV(고객 생애 가치)를 극대화할 수 있을까?</div>
-        <div class="q-item"><span>공급망 · 운영</span>데이터로 공급망의 낭비를 얼마나 줄일 수 있을까?</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-</section>
-
-<!-- ── SKILLS ── -->
-<section id="skills">
-<div class="wrap">
-  <p class="sec-eye">Skills</p>
-  <h2 class="sec-h">역량</h2>
-  
-  <p style="font-size: 14.5px; color: var(--ink-2); margin-bottom: 32px; line-height: 1.8; font-weight: 500;">
-    다양한 프로젝트에서 검증된 <strong style="color: var(--navy); font-weight: 700;">금융·CRM·SCM 도메인 지식</strong>과, 
-    20여 명의 팀원을 유연하게 조율하여 성과를 도출하고 발표를 주도해 온 <strong style="color: var(--navy); font-weight: 700;">소프트 리더십</strong>을 기반으로 
-    기술을 실질적인 비즈니스 솔루션으로 치환합니다.
-  </p>
-
-  <div class="sk-grid" style="gap: 16px;">
-    
-    <div class="sk-card" style="min-height: 200px;">
-      <p class="sk-h" style="font-family: var(--body); font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 14px;">
-        01 / 언어 및 인프라 도구
-      </p>
-      <div class="sk-tags">
-        <span class="sk-t">Python</span>
-        <span class="sk-t">SQL</span>
-        <span class="sk-t">Excel</span>
-        <span class="sk-t">Git / GitHub</span>
-        <span class="sk-t">R</span>
-        <span class="sk-t">Notion</span>
-      </div>
-    </div>
-
-    <div class="sk-card" style="min-height: 200px;">
-      <p class="sk-h" style="font-family: var(--body); font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 14px;">
-        02 / 통계 가설 검정 및 분석
-      </p>
-      <div class="sk-tags">
-        <span class="sk-t">회귀분석</span>
-        <span class="sk-t">카이제곱 검정</span>
-        <span class="sk-t">다변량 분석</span>
-        <span class="sk-t">K-Means 클러스터링</span>
-        <span class="sk-t">시계열 분석</span>
-      </div>
-    </div>
-
-    <div class="sk-card" style="min-height: 200px;">
-      <p class="sk-h" style="font-family: var(--body); font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 14px;">
-        03 / 데이터 모델링 & 엔지니어링
-      </p>
-      <div class="sk-tags">
-        <span class="sk-t">LightGBM</span>
-        <span class="sk-t">EXAONE (LLM)</span>
-        <span class="sk-t">KoBERT / FinBERT</span>
-        <span class="sk-t">XGBoost / CatBoost</span>
-        <span class="sk-t">BERTopic / LDA</span>
-        <span class="sk-t">RAG 파이프라인</span>
-        <span class="sk-t">Prompt Engineering</span>
-        <span class="sk-t">Scikit-learn</span>
+      <p class="q-title">기술 스택</p>
+      <div class="stack-groups">
+        <div class="stack-group">
+          <span class="stack-group-label">역량</span>
+          <div class="stack-chips">
+            <span class="stack-chip">머신러닝</span>
+            <span class="stack-chip">자연어처리 · NLP</span>
+            <span class="stack-chip">LLM 엔지니어링</span>
+            <span class="stack-chip">AI Agent</span>
+            <span class="stack-chip">비즈니스 인사이트</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <span class="stack-group-label">도구</span>
+          <div class="stack-chips">
+            <span class="stack-chip tool">Python</span>
+            <span class="stack-chip tool">R</span>
+            <span class="stack-chip tool">SQL</span>
+            <span class="stack-chip tool">Excel</span>
+          </div>
+        </div>
       </div>
     </div>
 
