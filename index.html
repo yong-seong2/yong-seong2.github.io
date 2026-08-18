@@ -392,9 +392,9 @@ footer {
   <span class="nav-mark">JO · YONGSEONG</span>
   <ul class="nav-links">
     <li><a href="#about">소개</a></li>
-    <li><a href="#projects">프로젝트</a></li>
+    <li><a href="#credentials">수상</a></li>
     <li><a href="#timeline">이력</a></li>
-    <li><a href="#credentials">자격·수상</a></li>
+    <li><a href="#projects">프로젝트</a></li>
   </ul>
 </nav>
 
@@ -515,7 +515,7 @@ footer {
       <p class="q-title">기술 스택</p>
       <div class="stack-groups">
         <div class="stack-group">
-          <span class="stack-group-label">역량</span>
+          <span class="stack-group-label">분석 역량</span>
           <div class="stack-chips">
             <span class="stack-chip">머신러닝</span>
             <span class="stack-chip">자연어처리 · NLP</span>
@@ -540,189 +540,12 @@ footer {
 </div>
 </section>
 
-<!-- ── PROJECTS ── -->
-<section id="projects" class="sec-bg">
-<div class="wrap">
-  <p class="sec-eye">Projects</p>
-  <h2 class="sec-h">주요 프로젝트</h2>
-
-  <!-- 1. 고객 이탈 예측 및 LTV 분석 (전국 4위 메이저 성과 - 네이비 배지) -->
-  <div class="pj f has-link" onclick="openProjectModal('sas-korea')">
-    <div class="pj-accent"></div>
-    <div class="pj-top">
-      <h3 class="pj-title">고객 이탈 예측 및 LTV 분석</h3>
-      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">본선 진출 · 장려상</span>
-    </div>
-    <p class="pj-meta">2026.04 — 05 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트 (4인) · 팀 리더 · 본선 발표</p>
-    <p class="pj-desc">10만 명 규모 고객 데이터(3개 이종 테이블)에서 이탈 확률(Churn)과 고객 생애가치(LTV)를 동시에 예측하는 2-Stage Cascading 파이프라인을 설계·구현했습니다. 팀장으로서 분석 방향을 잡고 본선 발표까지 맡았는데, 팀원 2명이 첫 머신러닝 대회였던 만큼 대회 초반에는 분석 흐름과 코드 작성 방식을 함께 맞춰가는 데도 시간을 들였습니다.</p>
-    <ul class="pj-list">
-      <li><strong>도메인 기반 파생변수:</strong> 단기부채비율(STR) 직접 설계 → Feature Importance 1위, AUC +0.0013. 유전 프로그래밍 907개 수식 탐색 등 모든 자동화 기법을 앞지른 도메인 논리.</li>
-      <li><strong>체계적 실험:</strong> 30회 이상 실험 기록 · Multi-seed 검증(5-Fold × 5~10 seed)으로 모든 채택/기각을 데이터로 결정. 제출 횟수가 제한된 대회 특성상, 멀티시드 검증으로 안정성을 먼저 확보하는 방향으로 팀 전략을 잡았습니다.</li>
-      <li><strong>역할 분담:</strong> 팀장으로서 파이프라인 설계·STR 변수·모델 선택·검증 체계를 직접 구현하고 본선 발표를 진행했으며, churn_resistance_score(RFM Rank 변수)는 팀원이 기여해 표준편차를 20% 줄였습니다.</li>
-      <li><strong>최종:</strong> Churn AUC 0.7993 / LTV RMSE 1,347,538 · 예선 전 주차 상위권 유지(2→3→5→4위) 후 본선 진출</li>
-    </ul>
-    <div class="pj-stack"><span class="st">LightGBM</span><span class="st">Optuna</span><span class="st">IsolationForest</span><span class="st">TF-IDF + SVD</span><span class="st">Multi-seed CV</span><span class="st">Python</span></div>
-    <div class="pj-links">
-      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('sas-korea')">자세히 보기 (차트·실험기록·코드) →</button>
-    </div>
-  </div>
-
-  <!-- 2. 건강 MBTI (최우수상 1등 성과 - 골드 앰버 배지) -->
-  <div class="pj f has-link" onclick="openProjectModal('health-mbti')">
-    <div class="pj-accent"></div>
-    <div class="pj-top">
-      <h3 class="pj-title">건강 MBTI — 국민건강영양조사 기반 유형화</h3>
-      <span class="badge" style="background: var(--amber-bg); color: var(--amber); border: 1.5px solid #FCD34D;">최우수상 (1등)</span>
-    </div>
-    <p class="pj-meta">2025 · 호남통계분석경진대회 · 팀 산만health (3인) · 팀 리더 · 기획·활용방안 담당</p>
-    <p class="pj-desc">국민건강영양조사 676개 지표를 정신건강·신체건강·건강행동·경제환경 4개 도메인으로 재구성하고, 도메인별 클러스터링 조합으로 8가지 건강 유형(건강 MBTI)을 도출했습니다. 팀장으로서 "어떤 분석이 필요한지"와 "이 결과를 어떻게 활용할 수 있는지"를 기획하는 역할을 맡아, 통계 분석이 실제 서비스로 이어지는 구조를 설계했습니다.</p>
-    <ul class="pj-list">
-      <li><strong>기획·PM 역할:</strong> 4개 도메인 구조 설계, 변수 선정 기준 수립, 유형별 명명과 맞춤 관리 전략까지 — 분석 결과를 일반인이 이해할 수 있는 서비스 프레임으로 전환.</li>
-      <li><strong>분석 방법:</strong> 도메인별 K-Means(k=2) 군집화 → 8개 유형 조합. 카이제곱·F검정·T검정·로지스틱 회귀로 연령·소득·결혼상태가 유형 분포에 미치는 영향을 검증.</li>
-      <li><strong>핵심 발견:</strong> 정신건강 취약 유형이 전체의 절반 이상을 차지했고, 미혼자는 한 유형(정신실천형)에 40% 집중되는 등 인구통계학적 특성에 따라 건강 유형이 뚜렷하게 갈렸습니다.</li>
-      <li><strong>활용방안:</strong> 유형별 캐릭터 콘텐츠, 지역 연계 건강 프로그램, 청소년 교육 자료 등 실제 활용 시나리오까지 보고서에 포함.</li>
-    </ul>
-    <div class="pj-stack"><span class="st">K-Means</span><span class="st">로지스틱 회귀</span><span class="st">카이제곱 검정</span><span class="st">Python / SAS</span></div>
-    <div class="pj-links">
-      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('health-mbti')">자세히 보기 (유형 분류·시각화) →</button>
-    </div>
-  </div>
-
-  <!-- 3. 수요급등 대비 안전재고량 최적화 (은상 성과 - 네이비 배지) -->
-  <div class="pj f has-link" onclick="openProjectModal('bigpie-inventory')">
-    <div class="pj-accent"></div>
-    <div class="pj-top">
-      <h3 class="pj-title">수요급등 대비 안전재고량 최적화</h3>
-      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">은상 (리더보드 1위)</span>
-    </div>
-    <p class="pj-meta">2025.08 · AI융합 산학연계 해커톤 · 팀 빅파이 (4인) · 팀 리더 · 모델링·발표 담당</p>
-    <p class="pj-desc">음료 상품 수요 예측 모델 구축 + 온도·기념일 시나리오별 안전재고 최적화. WAPE 19.66%로 리더보드 1위를 달성했습니다. 팀장으로서 분석 방향을 잡고 이중 모델 구조를 직접 설계·구현했으며, 발표까지 맡았습니다.</p>
-    <ul class="pj-list">
-      <li><strong>이중 모델:</strong> 고판매량(CatBoost + lag/rolling) · 저판매량(SARIMAX + Fallback) — 판매 규모에 따라 데이터가 충분한지 여부로 전략을 분리해 설계.</li>
-      <li><strong>역할 분담:</strong> 팀장으로서 이중 모델 파이프라인과 보정 로직(α-스무딩, 스파이크 캡 등)을 직접 구현하고 발표를 진행했으며, 품목 분류 체계와 시나리오 분석은 팀원들과 함께 만들었습니다.</li>
-      <li>+5°C 시나리오 → 판매량 +20~40% · 재고 30% 상향. 기념일 직후 재구매율 변화 → 마케팅 전략 연계.</li>
-    </ul>
-    <div class="pj-stack"><span class="st">CatBoost</span><span class="st">SARIMAX</span><span class="st">Lag Feature</span><span class="st">Rolling Mean</span><span class="st">Python</span></div>
-    <div class="pj-links">
-      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('bigpie-inventory')">자세히 보기 (모델·시나리오·코드) →</button>
-    </div>
-  </div>
-
-
-  <!-- 4. We-Meet 아동 AI 케어 챗봇 (기관 성과 - 딥 틸 배지) -->
-  <div class="pj f has-link" onclick="openProjectModal('controlz-wemeet')">
-    <div class="pj-accent"></div>
-    <div class="pj-top">
-      <h3 class="pj-title">Controlz — 돌봄 사각지대 아동 AI 케어 챗봇</h3>
-      <span class="badge" style="background: var(--teal-bg); color: var(--teal); border: 1.5px solid #6DD4D0;">장려상</span>
-    </div>
-    <p class="pj-meta">2025.08 — 2026.01 · We-Meet 산학협력 프로젝트 · 6인 팀</p>
-    <p class="pj-desc">맞벌이 가구 608만 시대, 혼자 있는 시간이 늘어난 아이를 위한 음성 대화형 AI 케어 챗봇 "Controlz"입니다. STT → 멀티모달 감정인식 → LLM → TTS로 이어지는 End-to-End 파이프라인을 설계하고, 아이용·부모용 두 개의 앱으로 서비스를 구현했습니다.</p>
-    <ul class="pj-list">
-      <li><strong>모델 선정:</strong> STT(Whisper Large), 감정인식(RoBERTa+Attention GRU 멀티모달), LLM(EXAONE 2.4B), TTS(Zonos)를 각각 여러 후보와 비교해 온디바이스 자원(VRAM 10GB) 제약 안에서 선정.</li>
-      <li><strong>기획 변경:</strong> 최초 영상·음성·텍스트 3중 멀티모달 계획을 자원·실시간성 제약으로 음성+텍스트 2중 구조로 재설계.</li>
-      <li><strong>안전 설계:</strong> 위험 신호(학대·자해 등) 감지 시 AI가 직접 개입하지 않고 아이가 어른에게 알리도록 유도하는 프로토콜을 시스템 프롬프트에 강제.</li>
-    </ul>
-    <div class="pj-stack"><span class="st">EXAONE 2.4B</span><span class="st">Whisper Large</span><span class="st">RoBERTa</span><span class="st">Zonos TTS</span><span class="st">FastAPI</span><span class="st">4-bit Quant</span></div>
-    <div class="pj-links">
-      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('controlz-wemeet')">자세히 보기 (아키텍처·모델 비교·UI) →</button>
-    </div>
-  </div>
-
-  <!-- 5. NH 빅데이터 분석대회 - Blueprinter (본선 진출 - 핑크 배지) -->
-  <div class="pj f has-link" onclick="openProjectModal('nh-blueprinter')">
-    <div class="pj-accent"></div>
-    <div class="pj-top">
-      <h3 class="pj-title">Blueprinter — Azure 생성형 AI 기반 ETF 추천 서비스</h3>
-      <span class="badge" style="background: #FFF0F3; color: #FF5A79; border: 1.5px solid #FFA3B1;">본선 진출 (87팀 중 30팀)</span>
-    </div>
-    <p class="pj-meta">2024.09 — 12 · 2024 NH투자증권 빅데이터 경진대회 · 팀 Blueprinter(3인) · 팀 리더</p>
-    <p class="pj-desc">고객의 투자 성향·자산 규모·숙련도와 경제 뉴스 데이터를 결합해 단기 ETF 투자 전략을 추천하는 Azure 기반 생성형 AI 챗봇 서비스입니다. 예선에서는 거래 데이터 상관분석의 한계를 확인했고, 본선에서는 GDELT 뉴스 데이터 기반 종합경제점수로 분석 방향을 전환했습니다.</p>
-    <ul class="pj-list">
-      <li><strong>종합경제점수 설계:</strong> GDELT 뉴스 데이터를 DBSCAN으로 11개 섹터로 클러스터링하고, 감정 점수·빈도 점수·시간 가중치를 결합해 섹터별 경제 흐름을 정량화.</li>
-      <li><strong>역할 분담:</strong> 팀 리더로서 아이디어를 최초 기획했고, 데이터 EDA·상관분석·종합경제점수 설계 등 데이터 분석·모델링을 직접 담당.</li>
-      <li><strong>개선 과정:</strong> KoBERT(느림·고비용) → GDELT(실시간) 전환, 감정 점수를 3단계 범주형에서 연속형으로 세분화, 매수만 가능했던 추천을 매수+매도로 확장.</li>
-    </ul>
-    <div class="pj-stack"><span class="st">GDELT</span><span class="st">DBSCAN</span><span class="st">Azure OpenAI</span><span class="st">KMeans</span><span class="st">Python</span></div>
-    <div class="pj-links">
-      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('nh-blueprinter')">자세히 보기 (분석·시스템·개선과정) →</button>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- ── TIMELINE ── -->
-<section id="timeline">
-<div class="wrap">
-  <p class="sec-eye">Timeline</p>
-  <h2 class="sec-h">활동 이력</h2>
-  <div class="tl">
-    <!-- 기본 이력 배경 (소프트 그레이) -->
-    <div class="tl-item f"><div class="tl-dot dot-gray"></div><p class="tl-date">2021.03</p><p class="tl-name">전남대학교 빅데이터융합학과 입학</p><p class="tl-sub">성적장학금 수혜 및 ADsP(데이터분석 준전문가) 취득</p></div>
-    <div class="tl-item f"><div class="tl-dot dot-gray"></div><p class="tl-date">2022.02 — 2023.08</p><p class="tl-name">군 복무 및 첫 공모전 도전</p><p class="tl-sub">1종 보통 운전면허 취득 · 국민체육진흥공단 공모전 참가</p></div>
-    
-    <!-- 정규 소속 및 활동 시작 (네이비) -->
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2024.03</p><p class="tl-name">2학년 1학기 복학</p><p class="tl-sub">학과 학생회 재무부 활동 착수 (1년) · SW중심대학 멘토링 참여 · 교육공공데이터분석대회 도전</p></div>
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2024.07</p><p class="tl-name">Co-Week Academy 수료 (한국연구재단)</p><p class="tl-sub">NLP·딥러닝·유전알고리즘 810분 수강 · 미래에셋 AI 대회 참여 (뉴스 감성분석 아이디어 최초 고안)</p></div>
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2024.07 — 09</p><p class="tl-name">LG Aimers 5기 수료 및 컴퓨터활용능력 1급 취득</p><p class="tl-sub">머신러닝 파이프라인(제품 이상 여부 판별) 첫 실전 경험</p></div>
-    
-    <!-- 핑크/레드 포인트로 정돈된 수상 및 성과 증명 이력 (핑크) -->
-    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2024.09.08</p><p class="tl-name">Co-Data Station 데이터 리터리시 대회 협회의장상 수상</p><p class="tl-sub">주제: 사별 위기 경보 시스템의 개선 방안 및 기대 효과 (최종 발표 담당)</p></div>
-    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2024.11.22</p><p class="tl-name">AIM Challenge 산학연계 경진대회 사업단장상 수상</p><p class="tl-sub">주제: 음성인식 무인 키오스크 개발 (최종 발표 담당)</p></div>
-    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2024.12.24</p><p class="tl-name">제5회 NH 빅데이터 분석대회 본선 진출</p><p class="tl-sub">주제: KoBERT 감성분석 기반 섹터 ETF 단기 투자 추천 알고리즘 (전국 상위 30팀 이내)</p></div>
-    
-    <!-- 정규 소속 및 장기 프로젝트 시작 (네이비) -->
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2025.01</p><p class="tl-name">전북대학교 교류 빅데이터 산학캡스톤디자인 수료 / LG Aimers 6기 참여</p><p class="tl-sub">LLM 특강 이수 및 RAG·프롬프트 엔지니어링 입문 · 난임 환자 임신 예측 개인 순위 상승</p></div>
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2025.03</p><p class="tl-name">3학년 1학기 개시 및 경영학 부전공 시작</p><p class="tl-sub">TOEIC 700점 취득 · 미래에셋희망재단 장학 수혜 (학점 4.29 우상향)</p></div>
-    
-    <!-- 일반 수상 및 성과 증명 이력 (핑크) -->
-    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2025.08.22</p><p class="tl-name">AI융합 산학연계 해커톤 은상 수상</p><p class="tl-sub">주제: 수요급등 대비 안전재고량 최적화 (동일 주제 내 리더보드 1위 달성 및 팀 리드)</p></div>
-    
-    <!-- 메이저 및 1등 수상 이력 (골드 앰버) -->
-    <div class="tl-item f"><div class="tl-dot dot-amber"></div><p class="tl-date">2025.09.22</p><p class="tl-name">2025 호남통계분석경진대회 최우수상(1등) 수상</p><p class="tl-sub">주제: 국민건강영양조사 기반 건강 MBTI 유형화 (클러스터링 및 가설 검정 통계 분석)</p></div>
-    
-    <!-- 정규 소속 및 학업 정점 (네이비) -->
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2025.09 — 2026.02</p><p class="tl-name">3학년 2학기 경영학 복수전공 확정</p><p class="tl-sub"><strong>21학점 이수 평점 4.50 (1등)</strong> · 한국사능력검정시험 1급 취득</p></div>
-    <div class="tl-item f"><div class="tl-dot dot-pink"></div><p class="tl-date">2026.01.12</p><p class="tl-name">We-Meet 산학협력 프로젝트 수료 및 장려상 수상</p><p class="tl-sub">기간: 2025.08.04 ~ 2026.01.12 (인증서 기준) · 주제: 돌봄 사각지대 아동 AI 케어 챗봇 (LLM 파이프라인 및 발표 담당)</p></div>
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2025.12 — 2026.01</p><p class="tl-name">GIST(광주과학기술원) 문체부 과제 연구 인턴십 수행</p><p class="tl-sub">209만 건의 대규모 외신 뉴스 데이터 기반 토픽 모델링 및 약지도 학습 자동 산업 분류 연구</p></div>
-    
-    <!-- 2026년으로 연도 정정 및 계승 서사를 녹여낸 동아리 이력 (네이비) -->
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2026.04</p><p class="tl-name">데이터 분석 학술 동아리 'Terabyte' 공동 운영진 참여 및 계승</p><p class="tl-sub">동아리 자산 리브랜딩 · 대외 프로젝트 협업 기반 마련 및 세션 주도</p></div>
-    
-    <!-- 메이저 및 전국구 성과 이력 (골드 앰버) -->
-    <div class="tl-item f"><div class="tl-dot dot-amber"></div><p class="tl-date">2026.05</p><p class="tl-name">제2회 데이터분석경진대회 전국 4위 (장려상) 수상</p><p class="tl-sub">주관: 한국데이터정보과학회 × SAS KOREA · 주제: 고객 이탈 예측 및 LTV 분석 (단기부채비율 파생변수 설계)</p></div>
-    
-    <!-- 현재 진행형 이력 (네이비) -->
-    <div class="tl-item f"><div class="tl-dot dot-navy"></div><p class="tl-date">2026.07 (현재)</p><p class="tl-name">4학년 1학기 이수 완료 (학점 4.5)</p><p class="tl-sub">정보처리기사 자격 취득 · TOEIC Speaking IM3 취득 · 차기 프로젝트 기획 단계</p></div>
-  </div>
-</div>
-</section>
-
-<!-- 타임라인 전용 도트 스타일 확장 구성 -->
-<style>
-.tl-dot.dot-amber { background: var(--amber); box-shadow: 0 0 0 1.5px var(--amber); }
-.tl-dot.dot-pink  { background: #FF5A79;     box-shadow: 0 0 0 1.5px #FF5A79; }
-.tl-dot.dot-navy  { background: var(--navy);  box-shadow: 0 0 0 1.5px var(--navy); }
-.tl-dot.dot-gray  { background: var(--line-2); box-shadow: 0 0 0 1.5px var(--line-2); }
-</style>
-
 <!-- ── CREDENTIALS ── -->
-<section id="credentials" class="sec-bg">
+<section id="credentials">
 <div class="wrap">
-  <p class="sec-eye">Credentials</p>
-  <h2 class="sec-h">자격증 · 수상</h2>
+  <p class="sec-eye">Awards</p>
+  <h2 class="sec-h">수상 내역</h2>
 
-  <p style="font-family:var(--body);font-size:12px;font-weight:700;color:var(--navy);margin-bottom:12px;">자격증</p>
-  <div class="cr-grid f" style="margin-bottom:40px;">
-    <div class="cr-c"><div class="cr-ico">01</div><div><p class="cr-name">데이터분석 준전문가 (ADsP)</p><p class="cr-meta">2021.09 · 한국데이터산업진흥원</p></div></div>
-    <div class="cr-c"><div class="cr-ico">02</div><div><p class="cr-name">컴퓨터활용능력 1급</p><p class="cr-meta">2024.09 · 대한상공회의소</p></div></div>
-    <div class="cr-c"><div class="cr-ico">03</div><div><p class="cr-name">한국사능력검정시험 1급</p><p class="cr-meta">2025.08 · 국사편찬위원회</p></div></div>
-    <div class="cr-c"><div class="cr-ico">04</div><div><p class="cr-name">TOEIC 700점 · TOEIC Speaking IM3</p><p class="cr-meta">2025.03 / 2026.07</p></div></div>
-    <div class="cr-c"><div class="cr-ico">05</div><div><p class="cr-name">정보처리기사</p><p class="cr-meta">2026.06 · 한국산업인력공단</p></div></div>
-  </div>
-
-  <p style="font-family:var(--body);font-size:12px;font-weight:700;color:var(--navy);margin-bottom:12px;">수상 내역</p>
   <div class="f">
     <table class="aw-t">
       <thead>
@@ -773,7 +596,7 @@ footer {
         <tr>
           <td>2024</td>
           <td style="font-weight: 600; color: var(--ink);">Co-Data Station 데이터 리터리시 대회</td>
-          <td><span class="al al-teal">협회의장상</span></td>
+          <td><span class="al al-teal">협회회장상</span></td>
           <td>한국연구재단 · 인공지능혁신융합대학사업단</td>
         </tr>
         <tr>
@@ -1465,7 +1288,342 @@ agg[<span class="cs">'churn_resistance_score'</span>] = (f_rank + m_rank + (<spa
     </div>
   </div>
 </div>
+
+<div class="modal-overlay" id="modal-gist-internship" onclick="if(event.target===this) closeProjectModal('gist-internship')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProjectModal('gist-internship')">✕</button>
+    <p class="modal-eyebrow">PROJECT DETAIL</p>
+    <h2 class="modal-title">180만 건 외신 뉴스 필터링 · 도메인 감성분석 파이프라인 설계</h2>
+    <p class="modal-meta">GIST(광주과학기술원) 문체부 과제 연구 인턴십 · 개인 과제 · 2025.12—2026.01</p>
+
+    <div class="modal-grid2">
+      <div class="modal-card"><div class="modal-card-h">원천 데이터</div><div class="modal-card-v">외신 기사 180만 건</div></div>
+      <div class="modal-card"><div class="modal-card-h">실제 진행 방향</div><div class="modal-card-v">토픽모델링·자동 산업분류</div></div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">배경 — 문제가 정의되지 않은 상태에서 시작</div>
+      <p style="font-size:13px; color:var(--ink-2); line-height:1.7;">
+        180만 건 규모의 외신 원문 데이터를 받았지만, "이 데이터로 무엇을 분석할 것인가" 자체가 정해져 있지 않았습니다. 약 한 달 동안 관련 논문을 검토하며 <strong>(1) 목적에 맞는 기사만 걸러내는 필터링</strong>과 <strong>(2) 걸러진 기사를 지표화하는 감성분석</strong>, 두 갈래의 파이프라인을 직접 설계하는 데 집중했습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">설계한 파이프라인</div>
+      <svg viewBox="0 0 700 560" style="width:100%; height:auto; font-family: var(--body);">
+        <circle cx="350" cy="24" r="24" fill="var(--navy-bg)" stroke="var(--navy)" stroke-width="1.5"/>
+        <text x="350" y="21" text-anchor="middle" font-size="10" fill="var(--navy)" font-weight="700">Raw</text>
+        <text x="350" y="32" text-anchor="middle" font-size="10" fill="var(--navy)" font-weight="700">180만 건</text>
+        <line x1="350" y1="48" x2="350" y2="66" stroke="var(--ink-3)" stroke-width="1.5" marker-end="url(#arrowG)"/>
+
+        <rect x="180" y="66" width="340" height="216" rx="12" fill="var(--navy-bg)" opacity="0.35"/>
+        <text x="350" y="86" text-anchor="middle" font-size="12" font-weight="700" fill="var(--navy)">Phase 1 · 데이터 필터링</text>
+        <g font-size="11.5" fill="var(--ink)" font-weight="600">
+          <rect x="210" y="96" width="280" height="32" rx="6" fill="var(--white)" stroke="var(--navy)" stroke-width="1.2"/>
+          <text x="350" y="116" text-anchor="middle">1. 키워드 검색 · 확장</text>
+          <line x1="350" y1="128" x2="350" y2="140" stroke="var(--ink-3)" stroke-width="1.2" marker-end="url(#arrowG)"/>
+
+          <rect x="210" y="140" width="280" height="32" rx="6" fill="var(--white)" stroke="var(--navy)" stroke-width="1.2"/>
+          <text x="350" y="160" text-anchor="middle">2. 학습 데이터 라벨링</text>
+          <line x1="350" y1="172" x2="350" y2="184" stroke="var(--ink-3)" stroke-width="1.2" marker-end="url(#arrowG)"/>
+
+          <rect x="210" y="184" width="280" height="32" rx="6" fill="var(--white)" stroke="var(--navy)" stroke-width="1.2"/>
+          <text x="350" y="204" text-anchor="middle">3. SML 분류기 학습</text>
+          <line x1="350" y1="216" x2="350" y2="228" stroke="var(--ink-3)" stroke-width="1.2" marker-end="url(#arrowG)"/>
+
+          <rect x="210" y="228" width="280" height="32" rx="6" fill="var(--white)" stroke="var(--navy)" stroke-width="1.2"/>
+          <text x="350" y="248" text-anchor="middle">4. 전체 데이터 분류</text>
+        </g>
+
+        <line x1="350" y1="282" x2="350" y2="308" stroke="var(--ink-3)" stroke-width="1.5" marker-end="url(#arrowG)"/>
+
+        <rect x="180" y="308" width="340" height="164" rx="12" fill="var(--teal-bg)" opacity="0.4"/>
+        <text x="350" y="328" text-anchor="middle" font-size="12" font-weight="700" fill="var(--teal)">Phase 2 · 감성 분석</text>
+        <g font-size="11.5" fill="var(--ink)" font-weight="600">
+          <rect x="210" y="338" width="280" height="32" rx="6" fill="var(--white)" stroke="var(--teal)" stroke-width="1.2"/>
+          <text x="350" y="358" text-anchor="middle">News PMI 사전 적용</text>
+          <line x1="350" y1="370" x2="350" y2="382" stroke="var(--ink-3)" stroke-width="1.2" marker-end="url(#arrowG)"/>
+
+          <rect x="210" y="382" width="280" height="32" rx="6" fill="var(--white)" stroke="var(--teal)" stroke-width="1.2"/>
+          <text x="350" y="402" text-anchor="middle">감성 점수 산출</text>
+          <line x1="350" y1="414" x2="350" y2="426" stroke="var(--ink-3)" stroke-width="1.2" marker-end="url(#arrowG)"/>
+
+          <rect x="210" y="426" width="280" height="32" rx="6" fill="var(--white)" stroke="var(--teal)" stroke-width="1.2"/>
+          <text x="350" y="446" text-anchor="middle">시계열 지수 생성</text>
+        </g>
+
+        <line x1="350" y1="472" x2="350" y2="498" stroke="var(--ink-3)" stroke-width="1.5" marker-end="url(#arrowG)"/>
+        <circle cx="350" cy="524" r="26" fill="var(--navy)"/>
+        <text x="350" y="520" text-anchor="middle" font-size="10" fill="white" font-weight="700">인사이트</text>
+        <text x="350" y="531" text-anchor="middle" font-size="10" fill="white" font-weight="700">도출</text>
+
+        <defs>
+          <marker id="arrowG" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-3)"/>
+          </marker>
+        </defs>
+      </svg>
+      <p style="font-size:12px; color:var(--ink-3); margin-top:6px;">Phase 1은 목적에 맞는 기사만 정확히 걸러내는 필터링 설계, Phase 2는 걸러진 기사에 감성 점수를 매겨 시계열 지표로 만드는 설계입니다.</p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">Phase 1 — 필터링 설계 근거: 「Automated Text Classification of News Articles: A Practical Guide」</div>
+      <table class="exp-table">
+        <tr><th>단계</th><th>설계 내용</th></tr>
+        <tr class="ok"><td>1. 키워드 검색 · 확장</td><td>연구자가 선정한 초기 키워드에서 시작해 관련성을 유지하며 반복적으로 확장. 누락되는 기사를 줄이기 위해 주제 카테고리는 사용하지 않음</td></tr>
+        <tr class="ok"><td>2. 학습 데이터 라벨링</td><td>SML 학습에 필요한 250~3,000개 규모로 라벨링. 기사 첫 5문장만 코딩한 경우와 전체 문장을 코딩한 경우의 성능 차이가 거의 없어(0.693 vs 0.700) 세그먼트 단위 코딩으로 효율화</td></tr>
+        <tr class="ok"><td>3. SML 분류기 학습</td><td>사전 기반 방식보다 SML 성능이 우수하다는 근거로 SVM · 로지스틱 회귀 채택. 500~1,000개 소량 데이터로도 사전 방식보다 높은 정확도 확보 가능</td></tr>
+        <tr class="ok"><td>4. 전체 데이터 분류</td><td>학습된 분류기로 180만 건 전체에서 목적에 맞는(경제·기술) 기사만 추출</td></tr>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">Phase 2 — 감성 지표화 설계 근거: 「Measuring News Sentiment」</div>
+      <p style="font-size:13px; color:var(--ink-2); line-height:1.7;">
+        완전한 단일 감성사전은 없다는 판단 아래, 금융 특화 LM 사전과 범용 HL 사전을 결합하고, 부정어 규칙(부정어 뒤 단어의 점수를 반전)을 적용한 뒤, 기존 사전에 없는 도메인 단어는 PMI(Pointwise Mutual Information) 기법으로 직접 점수화해 채우는 News PMI 방식을 설계안으로 정리했습니다. 이후 일/월 단위로 집계하며 신문사 고유 성향 같은 편향을 제거해 시계열 지표로 만드는 것까지가 설계 범위였습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">실제 진행 방향 — 지도 방향에 따른 전환</div>
+      <p style="font-size:13.5px; color:var(--ink-2); line-height:1.8;">
+        위 설계안은 제안 단계로 남기고, 실제로는 지도 방향에 따라 <strong>토픽모델링(BERTopic · LDA)과 약지도학습 기반 자동 산업분류</strong>로 진행했습니다. 이 과정에서 LLM은 EXAONE 3.5를 사용해 여러 라벨링 방식(binary · −4~4 스코어 등)으로 분류 결과를 비교하며 실험했습니다. 처음 설계한 방향과 실제 채택된 방향이 달랐지만, 같은 데이터에서 나온 두 갈래 작업이라 설계 과정과 실제 구현 과정을 함께 정리해 남겼습니다.
+      </p>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">별도로 설계해본 응용 아이디어</div>
+      <div class="modal-grid2">
+        <div class="modal-card">
+          <div class="modal-card-h">청년 실업률 나우캐스팅</div>
+          <p style="font-size:12.5px; color:var(--ink-2); line-height:1.6; margin-top:6px;">뉴스 텍스트 기반 노동시장 신호가 공식 실업 통계를 1~6개월 선행할 수 있다는 가설 아래, 토픽별 감성 · 불확실성 지표를 청년 실업률 예측 모델에 결합하는 방향을 설계.</p>
+        </div>
+        <div class="modal-card">
+          <div class="modal-card-h">섹터 ETF 하방변동성 완화</div>
+          <p style="font-size:12.5px; color:var(--ink-2); line-height:1.6; margin-top:6px;">개별 종목 대신 TIGER200 계열 섹터 ETF를 대상으로, 토픽별 뉴스 감성 점수를 하방 변동성 위험 신호로 활용하는 아이디어를 별도로 설계 · 제안.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">참고 문헌</div>
+      <table class="exp-table">
+        <tr><th>논문</th><th>적용 지점</th></tr>
+        <tr class="ok"><td>Automated Text Classification of News Articles: A Practical Guide</td><td>Phase 1 필터링 파이프라인(키워드 확장 · 라벨링 · SML) 설계 근거</td></tr>
+        <tr class="ok"><td>Measuring News Sentiment</td><td>Phase 2 News PMI 감성 지표 설계 근거</td></tr>
+        <tr class="ok"><td>Econometric forecasting using ubiquitous news text: Text-enhanced factor model</td><td>뉴스 텍스트 지표를 계량경제 예측모델에 결합하는 구조 참고</td></tr>
+      </table>
+    </div>
+
+    <div class="modal-section">
+      <div class="modal-sec-h">교훈</div>
+      <p class="modal-quote">
+        정제되지 않은 대용량 데이터를 받았을 때는 분석 기법을 고르는 것보다 "무엇을 분석할지"를 정의하는 데 훨씬 많은 시간이 든다는 걸 체감했습니다. 제가 설계한 방향이 최종적으로 채택되지 않았더라도, 논문을 근거로 파이프라인을 처음부터 끝까지 설계해본 경험과 실제 채택된 방향에 맞춰 유연하게 구현에 참여한 경험을 함께 얻었습니다.
+      </p>
+    </div>
+
+    <div class="pj-links" style="margin-top:28px;">
+      <a href="https://github.com/yong-seong2/yong-seong2.github.io/tree/main/projects/gist-sentiment-experiment" class="pj-link-btn primary" target="_blank">GitHub 레포 보기 →</a>
+    </div>
+
+  </div>
+</div>
   
+</div>
+</section>
+
+<!-- ── TIMELINE ── -->
+<section id="timeline" class="sec-bg">
+<div class="wrap">
+  <p class="sec-eye">Timeline</p>
+  <h2 class="sec-h">활동 이력</h2>
+
+  <div class="tl-b-wrap">
+    <div class="tl-b">
+
+      <div class="tl-b-item f">
+        <p class="tl-b-date">~2024.08</p>
+        <p class="tl-b-title">2학년 1학기</p>
+        <ul class="tl-b-list">
+          <li>ADsP 취득</li>
+          <li><strong>교육공공데이터분석대회</strong> 참여 <span class="tl-b-topic">— 평생교육 통계별 요인 분석과 미래 방향성 제시</span></li>
+          <li><strong>Co-Week Academy</strong> 수료 <span class="tl-b-topic">— NLP·딥러닝 특강</span></li>
+          <li><strong>미래에셋 AI대회</strong> 참여 <span class="tl-b-topic">— 뉴스 감성분석 기획</span></li>
+          <li><strong>LG Aimers 5기</strong> 수료 <span class="tl-b-topic">— 제품 이상 여부 판별 ML 파이프라인</span></li>
+        </ul>
+      </div>
+
+      <div class="tl-b-item f">
+        <p class="tl-b-date">2024.09 — 12</p>
+        <p class="tl-b-title">2학년 2학기</p>
+        <ul class="tl-b-list">
+          <li><strong>Co-Data Station</strong> 협회회장상 <span class="tl-b-topic">— 사별 위기 경보 시스템 개선방안</span></li>
+          <li><strong>AIM Challenge</strong> 사업단장상 <span class="tl-b-topic">— 음성인식 무인 키오스크 개발</span></li>
+          <li><strong>NH 빅데이터 분석대회</strong> 본선 진출 <span class="tl-b-topic">— KoBERT 감성분석 기반 ETF 추천 (<a href="javascript:void(0)" class="tl-b-link" onclick="openProjectModal('nh-blueprinter')">프로젝트 보기</a>)</span></li>
+        </ul>
+      </div>
+
+      <div class="tl-b-item f">
+        <p class="tl-b-date">2025.01 — 08</p>
+        <p class="tl-b-title">3학년 1학기</p>
+        <ul class="tl-b-list">
+          <li><strong>전북대학교 빅데이터 캠프</strong> 수료 <span class="tl-b-topic">— LLM 특강 이수 및 RAG·프롬프트 엔지니어링 입문</span></li>
+          <li><strong>LG Aimers 6기</strong> 참여 <span class="tl-b-topic">— 난임 환자 임신 예측</span></li>
+          <li><strong>AI융합 산학연계 해커톤</strong> 은상 <span class="tl-b-topic">— 수요급등 대비 안전재고 최적화 (<a href="javascript:void(0)" class="tl-b-link" onclick="openProjectModal('bigpie-inventory')">프로젝트 보기</a>)</span></li>
+        </ul>
+      </div>
+
+      <div class="tl-b-item f">
+        <p class="tl-b-date">2025.09 — 2026.02</p>
+        <p class="tl-b-title">3학년 2학기</p>
+        <ul class="tl-b-list">
+          <li><strong>호남통계분석경진대회</strong> 최우수상(1등) <span class="tl-b-topic">— 건강 MBTI 유형화 (<a href="javascript:void(0)" class="tl-b-link" onclick="openProjectModal('health-mbti')">프로젝트 보기</a>)</span></li>
+          <li><strong>We-Meet 산학협력</strong> 장려상 <span class="tl-b-topic">— 아동 AI 케어 챗봇 (<a href="javascript:void(0)" class="tl-b-link" onclick="openProjectModal('controlz-wemeet')">프로젝트 보기</a>)</span></li>
+          <li><strong>GIST 연구 인턴십</strong> <span class="tl-b-topic">— 외신 뉴스 토픽모델링·자동 산업분류 (<a href="javascript:void(0)" class="tl-b-link" onclick="openProjectModal('gist-internship')">프로젝트 보기</a>)</span></li>
+        </ul>
+      </div>
+
+      <div class="tl-b-item f current">
+        <p class="tl-b-date">2026.03 — 현재</p>
+        <p class="tl-b-title">4학년 1학기</p>
+        <ul class="tl-b-list">
+          <li><strong>SAS KOREA 데이터분석경진대회</strong> 전국 4위 <span class="tl-b-topic">— 고객 이탈 예측·LTV 분석 (<a href="javascript:void(0)" class="tl-b-link" onclick="openProjectModal('sas-korea')">프로젝트 보기</a>)</span></li>
+          <li><strong>AIM Challenge</strong> 참여 <span class="tl-tag-progress">진행중</span><span class="tl-b-topic">— AI Agent 기반 여행지 추천 · 이미지/영상 생성 서비스</span></li>
+          <li><strong>'Terabyte'</strong> 동아리 운영진 참여</li>
+          <li>정보처리기사 취득</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 타임라인 전용 스타일 -->
+<style>
+.tl-b-wrap { overflow-x: auto; padding: 6px 4px 18px; margin: 0 -4px; -webkit-overflow-scrolling: touch; }
+.tl-b { display: flex; gap: 14px; min-width: max-content; }
+.tl-b-item {
+  width: 236px; flex-shrink: 0; background: var(--white); border: 1.5px solid var(--line);
+  border-radius: 12px; padding: 18px 20px 20px; position: relative;
+}
+.tl-b-item.current { border-color: var(--navy); box-shadow: 0 4px 16px rgba(26,58,107,.08); }
+.tl-b-date { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); font-weight: 600; margin-bottom: 4px; }
+.tl-b-title { font-size: 14.5px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+.tl-b-item.current .tl-b-title { color: var(--navy); }
+.tl-b-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.tl-b-list li { font-size: 12px; color: var(--ink-2); line-height: 1.55; }
+.tl-b-list li strong { color: var(--ink); font-weight: 700; }
+.tl-b-topic { display: block; color: var(--ink-3); font-size: 11.5px; margin-top: 1px; }
+.tl-b-link { color: var(--teal); font-weight: 700; cursor: pointer; text-decoration: none; border-bottom: 1px solid #6DD4D0; }
+.tl-b-link:hover { color: var(--navy); border-bottom-color: var(--navy); }
+.tl-tag-progress {
+  display: inline-block; background: var(--teal-bg); color: var(--teal); border: 1px solid #6DD4D0;
+  font-family: var(--body); font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 99px;
+  margin-left: 4px; vertical-align: middle;
+}
+@media(max-width:780px){
+  .tl-b-item { width: 208px; }
+}
+</style>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+<div class="wrap">
+  <p class="sec-eye">Projects</p>
+  <h2 class="sec-h">주요 프로젝트</h2>
+
+  <!-- 1. 고객 이탈 예측 및 LTV 분석 (전국 4위 메이저 성과 - 네이비 배지) -->
+  <div class="pj f has-link" onclick="openProjectModal('sas-korea')">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">고객 이탈 예측 및 LTV 분석</h3>
+      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">본선 진출 · 장려상</span>
+    </div>
+    <p class="pj-meta">2026.04 — 05 · 한국데이터정보과학회 × SAS KOREA · 팀 제타바이트 (4인) · 팀 리더 · 본선 발표</p>
+    <p class="pj-desc">10만 명 규모 고객 데이터로 이탈 확률(Churn)과 고객 생애가치(LTV)를 동시에 예측하는 파이프라인을 설계·구현했습니다.</p>
+    <div class="pj-stack"><span class="st">LightGBM</span><span class="st">Optuna</span><span class="st">IsolationForest</span><span class="st">TF-IDF + SVD</span><span class="st">Multi-seed CV</span><span class="st">Python</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('sas-korea')">자세히 보기 (차트·실험기록·코드) →</button>
+    </div>
+  </div>
+
+  <!-- 2. 건강 MBTI (최우수상 1등 성과 - 골드 앰버 배지) -->
+  <div class="pj f has-link" onclick="openProjectModal('health-mbti')">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">건강 MBTI — 국민건강영양조사 기반 유형화</h3>
+      <span class="badge" style="background: var(--amber-bg); color: var(--amber); border: 1.5px solid #FCD34D;">최우수상 (1등)</span>
+    </div>
+    <p class="pj-meta">2025 · 호남통계분석경진대회 · 팀 산만health (3인) · 팀 리더 · 기획·활용방안 담당</p>
+    <p class="pj-desc">국민건강영양조사 676개 지표를 4개 도메인으로 재구성해 8가지 건강 유형(건강 MBTI)을 도출하고, 활용 시나리오까지 기획했습니다.</p>
+    <div class="pj-stack"><span class="st">K-Means</span><span class="st">로지스틱 회귀</span><span class="st">카이제곱 검정</span><span class="st">Python / SAS</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('health-mbti')">자세히 보기 (유형 분류·시각화) →</button>
+    </div>
+  </div>
+
+  <!-- 3. 수요급등 대비 안전재고량 최적화 (은상 성과 - 네이비 배지) -->
+  <div class="pj f has-link" onclick="openProjectModal('bigpie-inventory')">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">수요급등 대비 안전재고량 최적화</h3>
+      <span class="badge" style="background: var(--navy-bg); color: var(--navy); border: 1.5px solid #9AB5DC;">은상 (리더보드 1위)</span>
+    </div>
+    <p class="pj-meta">2025.08 · AI융합 산학연계 해커톤 · 팀 빅파이 (4인) · 팀 리더 · 모델링·발표 담당</p>
+    <p class="pj-desc">판매 규모별로 모델을 분리한 이중 구조로 음료 수요를 예측하고, 온도·기념일 시나리오별 안전재고를 최적화했습니다.</p>
+    <div class="pj-stack"><span class="st">CatBoost</span><span class="st">SARIMAX</span><span class="st">Lag Feature</span><span class="st">Rolling Mean</span><span class="st">Python</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('bigpie-inventory')">자세히 보기 (모델·시나리오·코드) →</button>
+    </div>
+  </div>
+
+
+  <!-- 4. We-Meet 아동 AI 케어 챗봇 (기관 성과 - 딥 틸 배지) -->
+  <div class="pj f has-link" onclick="openProjectModal('controlz-wemeet')">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">Controlz — 돌봄 사각지대 아동 AI 케어 챗봇</h3>
+      <span class="badge" style="background: var(--teal-bg); color: var(--teal); border: 1.5px solid #6DD4D0;">장려상</span>
+    </div>
+    <p class="pj-meta">2025.08 — 2026.01 · We-Meet 산학협력 프로젝트 · 6인 팀</p>
+    <p class="pj-desc">STT→감정인식→LLM→TTS로 이어지는 음성 대화형 AI 케어 챗봇을 설계하고, 아이용·부모용 두 앱으로 구현했습니다.</p>
+    <div class="pj-stack"><span class="st">EXAONE 2.4B</span><span class="st">Whisper Large</span><span class="st">RoBERTa</span><span class="st">Zonos TTS</span><span class="st">FastAPI</span><span class="st">4-bit Quant</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('controlz-wemeet')">자세히 보기 (아키텍처·모델 비교·UI) →</button>
+    </div>
+  </div>
+
+  <!-- 5. NH 빅데이터 분석대회 - Blueprinter (본선 진출 - 핑크 배지) -->
+  <div class="pj f has-link" onclick="openProjectModal('nh-blueprinter')">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">Blueprinter — Azure 생성형 AI 기반 ETF 추천 서비스</h3>
+      <span class="badge" style="background: #FFF0F3; color: #FF5A79; border: 1.5px solid #FFA3B1;">본선 진출 (87팀 중 30팀)</span>
+    </div>
+    <p class="pj-meta">2024.09 — 12 · 2024 NH투자증권 빅데이터 경진대회 · 팀 Blueprinter(3인) · 팀 리더</p>
+    <p class="pj-desc">고객 투자 성향과 뉴스 데이터를 결합해 단기 ETF 전략을 추천하는 Azure 기반 생성형 AI 챗봇 서비스입니다.</p>
+    <div class="pj-stack"><span class="st">GDELT</span><span class="st">DBSCAN</span><span class="st">Azure OpenAI</span><span class="st">KMeans</span><span class="st">Python</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('nh-blueprinter')">자세히 보기 (분석·시스템·개선과정) →</button>
+    </div>
+  </div>
+
+  <!-- 6. GIST 연구 인턴십 - 필터링·감성분석 파이프라인 설계 (연구 인턴십 - 아웃라인 배지) -->
+  <div class="pj f has-link" onclick="openProjectModal('gist-internship')">
+    <div class="pj-accent"></div>
+    <div class="pj-top">
+      <h3 class="pj-title">180만 건 외신 뉴스 필터링 · 도메인 감성분석 파이프라인 설계</h3>
+      <span class="badge" style="background: var(--white); color: var(--navy); border: 1.5px solid #9AB5DC;">연구 인턴십</span>
+    </div>
+    <p class="pj-meta">2025.12 — 2026.01 · GIST(광주과학기술원) 문체부 과제 · 연구 인턴 · 개인 과제</p>
+    <p class="pj-desc">180만 건 외신 데이터의 필터링·감성분석 파이프라인을 직접 설계했고, 실제로는 토픽모델링 기반 자동 산업분류로 구현에 참여했습니다.</p>
+    <div class="pj-stack"><span class="st">BERTopic</span><span class="st">LDA</span><span class="st">EXAONE 3.5</span><span class="st">PMI Lexicon</span><span class="st">SML (SVM/Logistic)</span><span class="st">Python</span></div>
+    <div class="pj-links">
+      <button class="pj-link-btn primary" onclick="event.stopPropagation(); openProjectModal('gist-internship')">자세히 보기 (설계 파이프라인·참고문헌·실험) →</button>
+    </div>
+  </div>
+
 </div>
 </section>
 
